@@ -2,22 +2,34 @@ import org.junit.Before;
 import org.junit.Test;
 import Genre.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
 public class GenreUtilsTest {
 
-    GenreUtils tester;
+    private Genre testGenre;
+
     @Before
     public void initialise() {
-        tester = new GenreUtils();
+        testGenre = new Action();
     }
 
     @Test
     public void setGenreTest(){
-       Genre testGenre = new Action();
-       tester.setGenre(testGenre);
-       assertEquals("Genre.Action", tester.getGenre());
+       GenreUtils.setGenre(testGenre);
+       assertEquals("Genre.Action", GenreUtils.getGenre());
+    }
+
+    @Test
+    public void getInstrumentsTest() {
+        GenreUtils.setGenre(testGenre);
+        GenreUtils.getInstruments();
+
+        assertEquals(Arrays.asList(ActionInstruments.values()), GenreUtils.returnInstruments());
 
     }
 }
