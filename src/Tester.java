@@ -41,18 +41,22 @@ public class Tester {
         Genre x = new Action();
 //
 //        System.out.println(x.getClass());
-//        Pattern p2 = new Pattern("V0 I" + x.selectInstruments() + "D6majq F5majq A5majq D6q | C#6i D6i E6i F6i G6i F6i E6i D6i | " +
-//             "E6i A5i E6i G6i F6i E6i D6i C#6i | " +
-//                "B5i C#6i D6i F6i E6i D6i C#6i B5i | A5i Bb5i");
-//        Pattern p1 = new Pattern(("V1 " + x.setBassline("A")));
-//        //player.play(p2);
-//        Pattern test = new Pattern("T100 KEY:Amin " + p2);
+        Pattern p2 = new Pattern("V0 I" + x.selectInstruments() + "D6majq F5majq A5majq D6q | C#6i D6i E6i F6i G6i F6i E6i D6i | " +
+             "E6i A5i E6i G6i F6i E6i D6i C#6i | " +
+                "B5i C#6i D6i F6i E6i D6i C#6i B5i | A5i Bb5i");
+        Pattern p1 = new Pattern(("V1 " + x.setBassline("A")));
+        //player.play(p2);
+        Pattern test = new Pattern("T100 KEY:Amin " + p2);
 //        System.out.println(test);
-//        player.play(test, p1);
+        player.play(test, p1);
         GenreUtils p = new GenreUtils();
 
 
-        player.play("T100 KEY:Ebmaj V0 I" + p.getInstrument(x) + " C D E F G A B");
+//        p.setGenre(x);
+//        p.getInstruments();
+//        String h = "T100 KEY:Ebmaj V0 I" + p.getRandomInstrument() + " C D E F G A B";
+//        System.out.println(h);
+//        player.play(h);
 //        try {
 //            MidiFileManager.savePatternToMidi((PatternProducer) p1, new File("Test.midi"));
 //        } catch (Exception ex) {
