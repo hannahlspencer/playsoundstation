@@ -11,12 +11,10 @@ import static junit.framework.TestCase.assertTrue;
 
 public class GenreUtilsTest {
 
-    private Genre testGenre;
-
     @Before
     public void initialise() {
 
-        testGenre = new Action();
+        Genre testGenre = new Action();
         GenreUtils.setGenre(testGenre);
 
     }
@@ -28,7 +26,7 @@ public class GenreUtilsTest {
 
     @Test
     public void getInstrumentsTest() {
-        GenreUtils.getInstruments();
+        GenreUtils.setInstruments();
         String[] expected = {"ROCK_ORGAN", "OVERDRIVEN_GUITAR", "GUITAR_HARMONICS", "DISTORTION_GUITAR"};
         String[] result = GenreUtils.returnInstruments();
         assertTrue(Arrays.equals(expected, result));
@@ -37,7 +35,7 @@ public class GenreUtilsTest {
 
     @Test
     public void getRandomInstrumentTest() {
-        GenreUtils.getInstruments();
+        GenreUtils.setInstruments();
         String result = GenreUtils.getRandomInstrument();
         List expected = new ArrayList<String>();
         expected.add("ROCK_ORGAN");
@@ -69,19 +67,19 @@ public class GenreUtilsTest {
     public void setBasslineCheckNotes1() {
         String bass = GenreUtils.setBassline(2);
         String[] bassSplit = bass.split(" ");
-        assertTrue(bassSplit.length == 3);
+        assertEquals(3, bassSplit.length);
     }
 
     @Test
     public void setBasslineCheckNotes0() {
         String bass = GenreUtils.setBassline(0);
         String[] bassSplit = bass.split(" ");
-        assertTrue(bassSplit.length == 1);
+        assertEquals(1, bassSplit.length);
     }
     @Test
     public void setBasslineCheckNotes25() {
         String bass = GenreUtils.setBassline(25);
         String[] bassSplit = bass.split(" ");
-        assertTrue(bassSplit.length == 26);
+        assertEquals(26, bassSplit.length);
     }
 }
