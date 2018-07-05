@@ -1,26 +1,11 @@
 package Genre;
 
-public class Horror implements Genre {
-    @Override
-    public String selectInstruments() {
-        HorrorInstruments instrument =
-                HorrorInstruments.values()[(int)(Math.random()*HorrorInstruments.values().length)];
-        System.out.println(instrument);
-        return "[" + instrument + "] ";
-    }
+import java.util.List;
+public class Horror{
+    //have removed "implements Genre" for the moment while deciding best approach
 
-    @Override
-    public String setBassline(String score) {
-        //need to get the key so know what notes can be used
-        BassInstruments instrument =
-                BassInstruments.values()[(int)(Math.random()*BassInstruments.values().length)];
-        String melody = "";
-        for(int i = 0; i < 12; i++) {
-            String[] letters = {"A", "B", "C", "D", "E", "F", "G", "R"};
-            String note = letters[(int) (Math.random() * letters.length)];
-            melody += (note + "w ");
-        }
-        System.out.println("I[" + instrument + "] " + melody);
-        return "I[" + instrument + "] " + melody;
-    }
+    String[] bassNoteLengths = { "w"};
+    String[] instruments = {"VIOLIN", "VIOLA", "CELLO", "CHOIR_OOHS", "CHOIR_AAHS", "SYNTH_VOICE", "CRYSTAL","TUBULAR_BELLS",
+            "MUSIC_BOX", "BREATH_NOISE", "METALLIC"};
+
 }
