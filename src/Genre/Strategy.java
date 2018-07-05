@@ -1,13 +1,17 @@
 package Genre;
 
 public class Strategy implements Genre {
+    private String[] bassNoteLengths = null;
+    private String[] instruments = null;
+
+
     @Override
-    public String selectInstruments() {
-        return null;
+    public String[] getBassNoteLengths() {
+        return bassNoteLengths;
     }
 
     @Override
-    public String setBassline(String score) {
-        return null;
+    public String[] getInstruments() {
+        return instruments;
     }
 }
