@@ -21,23 +21,17 @@ public class GenreUtilsTest {
     @Test
     public void setGenreTest(){
        GenreUtils.setGenre(testGenre);
-       assertEquals("Genre.Action", GenreUtils.getGenre());
+       assertTrue(GenreUtils.getGenre() instanceof Action);
     }
 
     @Test
     public void getInstrumentsTest() {
         GenreUtils.setGenre(testGenre);
         GenreUtils.getInstruments();
-        assertEquals(Arrays.asList(ActionInstruments.values()), GenreUtils.returnInstruments());
+        String[] expected = {"ROCK_ORGAN", "OVERDRIVEN_GUITAR", "GUITAR_HARMONICS", "DISTORTION_GUITAR"};
+        assertEquals(expected, GenreUtils.returnInstruments());
     }
 
-    @Test
-    public void getInstrumentTestFail() {
-        Genre test = new TestFail();
-        GenreUtils.setGenre(test);
-        GenreUtils.getInstruments();
-        assertTrue(GenreUtils.returnInstruments() == null);
-    }
 
     @Test
     public void getRandomInstrumentTest() {
