@@ -9,21 +9,13 @@ public class Puzzler implements Genre {
         return "[" + instrument + "] ";
     }
 
+//    @Override
+//    public String setBassline(int numNotes) { not sure how to deal with number of notes yet
+//            String[] noteLengths = {"w", "q", "i", "h"};
+//           return GenreUtils.setBassline(noteLengths, numNotes);
+//    }#
     @Override
-    public String setBassline(String key) {
-        //need to get the key so know what notes can be used
-        BassInstruments instrument =
-                BassInstruments.values()[(int)(Math.random()*BassInstruments.values().length)];
-        String melody = "";
-        for(int i = 0; i < 12; i++) {
-            String[] letters = {"A", "B", "C", "D", "E", "F", "G", "R"};
-            String[] noteLengths = {"w", "q", "i", "h"};
-            String note = letters[(int) (Math.random() * letters.length)];
-            String length = noteLengths[(int) (Math.random() * noteLengths.length)];
-            melody += (note + length + " ");
-        }
-        System.out.println("I[" + instrument + "] " + melody);
-        return "I[" + instrument + "] " + melody;
-
+    public String setBassline(String score) {
+        return "x";
     }
 }

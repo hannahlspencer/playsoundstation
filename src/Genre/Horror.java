@@ -1,6 +1,5 @@
 package Genre;
 
-import java.util.List;
 public class Horror{
     //have removed "implements Genre" for the moment while deciding best approach
 
