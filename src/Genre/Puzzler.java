@@ -1,21 +1,17 @@
 package Genre;
 public class Puzzler implements Genre {
 
+    private String[] bassNoteLengths = { "w", "h", "q", "i" };
+    private String[] instruments = {"CHOIR", "CRYSTAL", "BOWED",  "SAWTOOTH"};
+
+
     @Override
-    public String selectInstruments() {
-        //selects a random instrument from the preassigned instruments for the genre
-        PuzzlerInstruments instrument =
-                PuzzlerInstruments.values()[(int)(Math.random()*PuzzlerInstruments.values().length)];
-        return "[" + instrument + "] ";
+    public String[] getBassNoteLengths() {
+        return bassNoteLengths;
     }
 
-//    @Override
-//    public String setBassline(int numNotes) { not sure how to deal with number of notes yet
-//            String[] noteLengths = {"w", "q", "i", "h"};
-//           return GenreUtils.setBassline(noteLengths, numNotes);
-//    }#
     @Override
-    public String setBassline(String score) {
-        return "x";
+    public String[] getInstruments() {
+        return instruments;
     }
 }

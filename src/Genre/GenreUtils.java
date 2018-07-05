@@ -6,43 +6,27 @@ import java.util.List;
 
 public class GenreUtils {
 
-    static List instruments;
-    static String genreString;
-    static Genre genreClass;
+    private static String[] instruments;
+    private static Genre genreClass;
 
     public static void setGenre(Genre x) {
         genreClass = x;
-        String genre = x.getClass().toString();
-        String cleanGenre = genre.replace("class ", "");
-        genreString = cleanGenre;
     }
 
-    public static String getGenre() {
-        return genreString;
+    public static Genre getGenre() {
+        return genreClass;
     }
 
     public static void getInstruments() {
-        String ins = genreString + "Instruments";
-        try {
-            Class<?> selection = Class.forName(ins);
-            List list = new ArrayList();
-            if(selection.isEnum()) {
-                list = Arrays.asList(selection.getEnumConstants());
-            }
-             instruments = list;
-        } catch (ClassNotFoundException e) {
-            System.out.println("There is not a genre of that type stored with instruments");
-            e.printStackTrace();
-        }
-
+        instruments = genreClass.getInstruments();
     }
 
-    public static List returnInstruments() {
+    public static String[] returnInstruments() {
         return instruments;
     }
 
     public static String getRandomInstrument() {
-        return instruments.get((int) (Math.random()*instruments.size())).toString();
+        return instruments[(int) (Math.random()*instruments.length)].toString();
     }
 
     public static String setBassline(int numOfNotes) {

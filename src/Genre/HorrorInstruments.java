@@ -1,6 +1,0 @@
-package Genre;
-
-public enum HorrorInstruments {
-    VIOLIN, VIOLA, CELLO, CHOIR_OOHS, CHOIR_AAHS, SYNTH_VOICE, CRYSTAL, TUBULAR_BELLS,
-    MUSIC_BOX, BREATH_NOISE, METALLIC
-}

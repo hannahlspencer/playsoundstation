@@ -5,6 +5,8 @@ public interface Genre {
     String[] bassNoteLengths = new String[0];
     String[] instruments = new String[0];
 
+    public String[] getBassNoteLengths();
+    public String[] getInstruments();
 //    /**
 //     * Assigns instruments from the enum class set in identifyInstruments to lines of melody within the
 //     * musical score String and returns this String
