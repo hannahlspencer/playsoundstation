@@ -1,14 +1,27 @@
+import Genre.*;
 public class Score {
-    String firstInstrument;
-    String secondInstrument;
-    String firstMelody;
-    String secondMelody;
-    String speed;
+    //this will increment with each voice added to the sound
+    int counter = 0;
     String score;
+    Genre genre;
+    String instrument;
+    String melody;
+    String key;
+    String tempo;
 
 
 
-    String assembleMelody() {
-        return "Todo";
+
+    public void setInstrument() {
+        GenreUtils.getInstruments();
+        instrument = GenreUtils.getRandomInstrument();
+    }
+
+    public void initialiseScore() {
+        score = tempo + " KEY:" + key;
+    }
+
+    public void updateScore(String newMelody) {
+        score = score + " V" + counter + " I" + instrument + " " + melody;
     }
 }
