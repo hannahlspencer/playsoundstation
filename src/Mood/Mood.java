@@ -9,7 +9,7 @@ public interface Mood {
      * Picks one of these keys at random and returns an ArrayList of possible notes to choose from
      * when constructing a piece of music
      */
-    String findKey();
+    String setKey();
 
     /**
      * Percussion types and intensity will be decided based on Mood.Mood input.
