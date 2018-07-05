@@ -1,8 +1,8 @@
 package Genre;
 
 public class Strategy implements Genre {
-    private String[] bassNoteLengths = null;
-    private String[] instruments = null;
+    private String[] bassNoteLengths = {"w", "h"};
+    private String[] instruments = {"VIBRAPHONE", "TRUMPET", "MUTED_TRUMPET", "TUBA"};
 
 
     @Override
