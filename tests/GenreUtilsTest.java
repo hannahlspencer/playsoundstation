@@ -15,27 +15,28 @@ public class GenreUtilsTest {
 
     @Before
     public void initialise() {
+
         testGenre = new Action();
+        GenreUtils.setGenre(testGenre);
+
     }
 
     @Test
     public void setGenreTest(){
-       GenreUtils.setGenre(testGenre);
        assertTrue(GenreUtils.getGenre() instanceof Action);
     }
 
     @Test
     public void getInstrumentsTest() {
-        GenreUtils.setGenre(testGenre);
         GenreUtils.getInstruments();
         String[] expected = {"ROCK_ORGAN", "OVERDRIVEN_GUITAR", "GUITAR_HARMONICS", "DISTORTION_GUITAR"};
-        assertEquals(expected, GenreUtils.returnInstruments());
+        String[] result = GenreUtils.returnInstruments();
+        assertTrue(Arrays.equals(expected, result));
     }
 
 
     @Test
     public void getRandomInstrumentTest() {
-        GenreUtils.setGenre(testGenre);
         GenreUtils.getInstruments();
         String result = GenreUtils.getRandomInstrument();
         List expected = new ArrayList<String>();
@@ -47,7 +48,40 @@ public class GenreUtilsTest {
     }
 
     @Test
-    public void setBasslineTest() {
+    public void setBasslineTestInstrument() {
+        List test = new ArrayList<String>();
+        test.add("SYNTH_BASS_2");
+        test.add("SYNTH_BASS_1");
+        test.add("SLAP_BASS_2");
+        test.add("SLAP_BASS_1");
+        test.add("FRETLESS_BASS");
+        test.add("ELECTRIC_BASS_PICK");
+        test.add("ELECTRIC_BASS_FINGER");
+        test.add("ACOUSTIC_BASS");
+        String bass = GenreUtils.setBassline(2);
+        String[] bassSplit = bass.split(" ");
+        String bassInstrument = bassSplit[0].replaceAll("[\\[\\]I]", "");
+        assertTrue(test.contains(bassInstrument));
+    }
 
+
+    @Test
+    public void setBasslineCheckNotes1() {
+        String bass = GenreUtils.setBassline(2);
+        String[] bassSplit = bass.split(" ");
+        assertTrue(bassSplit.length == 3);
+    }
+
+    @Test
+    public void setBasslineCheckNotes0() {
+        String bass = GenreUtils.setBassline(0);
+        String[] bassSplit = bass.split(" ");
+        assertTrue(bassSplit.length == 1);
+    }
+    @Test
+    public void setBasslineCheckNotes25() {
+        String bass = GenreUtils.setBassline(25);
+        String[] bassSplit = bass.split(" ");
+        assertTrue(bassSplit.length == 26);
     }
 }
