@@ -14,7 +14,7 @@ public class MoodUtilsTest {
 
     @Before
     public void initialise() {
-        testMood = new Happy();
+        testMood = new Upbeat();
         MoodUtils.setMood(testMood);
     }
     @Test
@@ -39,7 +39,7 @@ public class MoodUtilsTest {
 
     @Test
     public void testAddPercussion() {
-
+        MoodUtils.addPercussion();
     }
 
     @Test
