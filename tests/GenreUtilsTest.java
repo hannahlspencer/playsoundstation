@@ -13,10 +13,8 @@ public class GenreUtilsTest {
 
     @Before
     public void initialise() {
-
         Genre testGenre = new Action();
         GenreUtils.setGenre(testGenre);
-
     }
 
     @Test
@@ -76,6 +74,7 @@ public class GenreUtilsTest {
         String[] bassSplit = bass.split(" ");
         assertEquals(1, bassSplit.length);
     }
+
     @Test
     public void setBasslineCheckNotes25() {
         String bass = GenreUtils.setBassline(25);
