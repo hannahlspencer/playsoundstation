@@ -13,7 +13,7 @@ public class Score {
 
 
     public void setInstrument() {
-        GenreUtils.getInstruments();
+        GenreUtils.setInstruments();
         instrument = GenreUtils.getRandomInstrument();
     }
 
