@@ -7,21 +7,16 @@ import java.util.Map;
 
 public class Happy implements Mood {
 
-    //Happy requires a major key, so this method selects a random key and ensures it's major
-    @Override
-    public String setKey() {
+    private String key = "maj";
+    private int[] tempoRange = {120, 160};
 
-        //adds major on the end to ensure it's in a major key
-        return "maj";
+
+    public String getKey() {
+        return key;
     }
 
-    @Override
-    public String addPercussion() {
-        return null;
+    public int[] getTempoRange() {
+        return tempoRange;
     }
 
-    @Override
-    public String decideTempo() {
-        return null;
-    }
 }
