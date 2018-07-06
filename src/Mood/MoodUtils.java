@@ -1,6 +1,11 @@
 
 package Mood;
 
+import org.jfugue.pattern.Pattern;
+import org.jfugue.player.Player;
+import org.jfugue.rhythm.Rhythm;
+import org.jfugue.theory.ChordProgression;
+
 import java.util.Random;
 
 public class MoodUtils {
@@ -17,9 +22,9 @@ public class MoodUtils {
     }
 
     /**
-     * Based on the user input finds a set of music keys that could be used
-     * Picks one of these keys at random and returns an ArrayList of possible notes to choose from
-     * when constructing a piece of music
+     * From a series of notes, defines a set of keys that could be used
+     * Picks one of these keys at random and returns the String of the key, including
+     * whether it should be major or minor dependent on the Mood
      */
     public static String setKey() {
         //decides a random note for the key to be in
@@ -33,13 +38,31 @@ public class MoodUtils {
 
     /**
      * Percussion types and intensity will be decided based on Mood.Mood input.
-     * @return String that can be fed into a player that creates percussive sounds
+     * @return Rhythm type that can be fed into a player that creates percussive sounds
      */
-    //String addPercussion();
+    public static Rhythm addPercussion() {
+        char[] moodPercussion = moodClass.getPercussiveInstruments();
+        Rhythm rhythm = new Rhythm();
+        for(int i = 0; i < moodPercussion.length; i++) {
+            char[] starterRhythm = "........".toCharArray();
+            Random r = new Random();
+            String layer = "";
+            for(int j = 0; j < moodClass.getBeats(); j++) {
+                char[] p = starterRhythm;
+                p[r.nextInt(starterRhythm.length)] = moodPercussion[i];
+                layer = new String(p);
+            }
+            System.out.println(layer);
+            rhythm.addLayer(layer);
+        }
+        return rhythm;
+    }
 
     /**
      * The mood will affect the tempo, eg. sadder moods tend to be slower
-     * @return String that will change the tempo of the piece
+     * This method takes the range recommended by the Mood class and chooses a random tempo in between
+     * these two numbers.
+     * @return String that will state the tempo of the piece
      */
     public static String decideTempo() {
         String initial = "T";
