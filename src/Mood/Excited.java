@@ -1,16 +1,17 @@
 package Mood;
 
-public class Gloomy implements Mood {
+public class Excited implements Mood {
+    private String key = "maj";
+    private int[] tempoRange = { 110, 220};
+    private int beats = 10;
+    private char[] percussiveInstruments = {'X', 'O', '`', '+', 'S'};
 
-    private String key = "min";
-    private int[] tempoRange = {40, 80};
-    private char[] percussiveInstruments = {'`', '+', 'O'};
-    private int beats = 4;
-
+    @Override
     public String getKey() {
         return key;
     }
 
+    @Override
     public int[] getTempoRange() {
         return tempoRange;
     }

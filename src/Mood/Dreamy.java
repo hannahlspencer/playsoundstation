@@ -3,7 +3,8 @@ package Mood;
 public class Dreamy implements Mood {
     private String key = "maj";
     private int[] tempoRange = {60, 110};
-    private String[] percussiveInstruments = new String[0];
+    private char[] percussiveInstruments = {'X', '`', 'S'};
+    private int beats = 4;
 
 
     public String getKey() {
@@ -16,11 +17,11 @@ public class Dreamy implements Mood {
 
     @Override
     public int getBeats() {
-        return 0;
+        return beats;
     }
 
     @Override
     public char[] getPercussiveInstruments() {
-        return new char[0];
+        return percussiveInstruments;
     }
 }
