@@ -1,4 +1,6 @@
 import Mood.*;
+import com.sun.xml.internal.ws.util.StringUtils;
+import org.jfugue.rhythm.Rhythm;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,8 +40,13 @@ public class MoodUtilsTest {
     }
 
     @Test
-    public void testAddPercussion() {
-        MoodUtils.addPercussion();
+    public void testAddPercussionBeats() {
+        List<String> percussionLayers = MoodUtils.addPercussion().getLayers();
+        for(int i = 0; i < percussionLayers.size(); i++) {
+            String layer = percussionLayers.get(i);
+            int count = layer.replace(".", "").length();
+            assertTrue(count <= testMood.getBeats());
+        }
     }
 
     @Test
