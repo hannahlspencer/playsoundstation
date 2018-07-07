@@ -1,11 +1,6 @@
 
 package Mood;
-
-import org.jfugue.pattern.Pattern;
-import org.jfugue.player.Player;
 import org.jfugue.rhythm.Rhythm;
-import org.jfugue.theory.ChordProgression;
-
 import java.util.Random;
 
 public class MoodUtils {
@@ -20,6 +15,7 @@ public class MoodUtils {
     public static void setMood(Mood mood) {
         moodClass = mood;
     }
+    public static Mood getMood() { return moodClass; }
 
     /**
      * From a series of notes, defines a set of keys that could be used
@@ -37,22 +33,31 @@ public class MoodUtils {
     }
 
     /**
-     * Percussion types and intensity will be decided based on Mood.Mood input.
-     * @return Rhythm type that can be fed into a player that creates percussive sounds
+     * Percussion types and intensity will be decided based on Mood.
+     * Each mood has a set of percussive instruments relevant to it, and then the method
+     * adds a layer of percussion for each instrument
+     * Each mood also has a recommended number of beats per 12 beats (to accommodate for all
+     * standard time signatures)
+     * The for loops start with each recommended instrument, and the second for loop adds up to the
+     * number of recommended beats to that layer. The first for loop then adds that layer to the rhythm
+     * @return Rhythm type with all the layers that can be fed into a player that creates percussive sounds
      */
     public static Rhythm addPercussion() {
+        //fetches instruments
         char[] moodPercussion = moodClass.getPercussiveInstruments();
         Rhythm rhythm = new Rhythm();
+        //goes through each instrument
         for(int i = 0; i < moodPercussion.length; i++) {
-            char[] starterRhythm = "........".toCharArray();
+            char[] starterRhythm = "............".toCharArray();
             Random r = new Random();
             String layer = "";
+            //adds in up to the recommended number of instrument noises per 12 beats
             for(int j = 0; j < moodClass.getBeats(); j++) {
                 char[] p = starterRhythm;
+                //picks a random beat out of the 12
                 p[r.nextInt(starterRhythm.length)] = moodPercussion[i];
                 layer = new String(p);
             }
-            System.out.println(layer);
             rhythm.addLayer(layer);
         }
         return rhythm;
