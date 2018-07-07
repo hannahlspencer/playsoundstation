@@ -56,7 +56,8 @@ public class GenreUtilsTest {
         test.add("ACOUSTIC_BASS");
         String bass = GenreUtils.setBassline(2);
         String[] bassSplit = bass.split(" ");
-        String bassInstrument = bassSplit[0].replaceAll("[\\[\\]I]", "");
+        String bassInstrument = bassSplit[0].replaceAll("[\\[\\] ]", "");
+        bassInstrument = bassInstrument.substring(1);
         assertTrue(test.contains(bassInstrument));
     }
 
