@@ -4,8 +4,8 @@ public class Scary implements Mood {
 
     private String key = "min";
     private int[] tempoRange = {80, 160};
-    private char[] percussiveInstruments = { '+', 'O', 'o', 'X'};
-    private int beats = 3;
+    private char[] percussiveInstruments = { '.'};
+    private int beats = 2;
 
     @Override
     public String getKey() {

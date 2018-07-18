@@ -3,7 +3,7 @@ package Mood;
 public class Excited implements Mood {
     private String key = "maj";
     private int[] tempoRange = { 110, 220};
-    private int beats = 10;
+    private int beats = 8;
     private char[] percussiveInstruments = {'X', 'O', '`', '+', 'S'};
 
     @Override
