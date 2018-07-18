@@ -1,5 +1,6 @@
 
 package Mood;
+import org.jfugue.pattern.Pattern;
 import org.jfugue.rhythm.Rhythm;
 import java.util.Random;
 
@@ -42,7 +43,7 @@ public class MoodUtils {
      * number of recommended beats to that layer. The first for loop then adds that layer to the rhythm
      * @return Rhythm type with all the layers that can be fed into a player that creates percussive sounds
      */
-    public static Rhythm addPercussion() {
+    public static Pattern addPercussion() {
         //fetches instruments
         char[] moodPercussion = moodClass.getPercussiveInstruments();
         Rhythm rhythm = new Rhythm();
@@ -60,7 +61,7 @@ public class MoodUtils {
             }
             rhythm.addLayer(layer);
         }
-        return rhythm;
+        return rhythm.getPattern();
     }
 
     /**
