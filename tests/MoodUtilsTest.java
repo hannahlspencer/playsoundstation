@@ -39,15 +39,15 @@ public class MoodUtilsTest {
         assertTrue(test.contains(result.charAt(0)));
     }
 
-    @Test
-    public void testAddPercussionBeats() {
-        List<String> percussionLayers = MoodUtils.addPercussion().getLayers();
-        for(int i = 0; i < percussionLayers.size(); i++) {
-            String layer = percussionLayers.get(i);
-            int count = layer.replace(".", "").length();
-            assertTrue(count <= testMood.getBeats());
-        }
-    }
+//    @Test
+//    public void testAddPercussionBeats() {
+//        List<String> percussionLayers = MoodUtils.addPercussion().getLayers();
+//        for(int i = 0; i < percussionLayers.size(); i++) {
+//            String layer = percussionLayers.get(i);
+//            int count = layer.replace(".", "").length();
+//            assertTrue(count <= testMood.getBeats());
+//        }
+//    }
 
     @Test
     public void testDecideTempoInitial() {
