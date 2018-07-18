@@ -24,7 +24,6 @@ public class ScoreTest {
 
     @Test
     public void initialiseUtilsTest() {
-        score.initialiseUtils();
         assertTrue(GenreUtils.getGenre() instanceof Horror);
         assertTrue(MoodUtils.getMood() instanceof Scary);
     }
@@ -49,7 +48,6 @@ public class ScoreTest {
 
     @Test
     public void checkInstruments() {
-        score.initialiseUtils();
         score.setInstrument();
         String instrument = score.getInstrument();
         assertEquals(' ', instrument.charAt(0));
@@ -60,7 +58,6 @@ public class ScoreTest {
 
     @Test
     public void checkAppropriateInstrument() {
-        score.initialiseUtils();
         score.setInstrument();
         String instrument = score.getInstrument();
         instrument = instrument.replaceAll("[\\[\\] ]", "");
@@ -71,14 +68,12 @@ public class ScoreTest {
 
     @Test
     public void checkSetKeyInitial() {
-        score.initialiseUtils();
         score.setKey();
         String initialString = score.getKey().substring(0, 5);
         assertEquals(" KEY:", initialString);
     }
     @Test
     public void checkSetKeyEnd() {
-        score.initialiseUtils();
         score.setKey();
         String endString = score.getKey();
         endString = endString.substring(endString.length() - 3, endString.length());
@@ -87,7 +82,6 @@ public class ScoreTest {
 
     @Test
     public void checkNotes() {
-        score.initialiseUtils();
         score.setKey();
         String note = score.getKey();
         note = note.substring(5, note.length() - 3);
