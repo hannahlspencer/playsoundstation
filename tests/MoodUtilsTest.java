@@ -1,24 +1,27 @@
 import Mood.*;
-import com.sun.xml.internal.ws.util.StringUtils;
-import org.jfugue.rhythm.Rhythm;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 public class MoodUtilsTest {
 
-    Mood testMood;
+    private Mood testMood;
 
     @Before
     public void initialise() {
         testMood = new Upbeat();
         MoodUtils.setMood(testMood);
     }
+
+    @Test
+    public void setMoodTest(){
+        assertTrue(MoodUtils.getMood() instanceof Upbeat);
+    }
+
     @Test
     public void testSetKeyType() {
         String result = MoodUtils.setKey();
@@ -39,15 +42,14 @@ public class MoodUtilsTest {
         assertTrue(test.contains(result.charAt(0)));
     }
 
-//    @Test
-//    public void testAddPercussionBeats() {
-//        List<String> percussionLayers = MoodUtils.addPercussion().getLayers();
-//        for(int i = 0; i < percussionLayers.size(); i++) {
-//            String layer = percussionLayers.get(i);
-//            int count = layer.replace(".", "").length();
-//            assertTrue(count <= testMood.getBeats());
-//        }
-//    }
+    @Test
+    public void testAddPercussionBeats() {
+        String percussionLayers = MoodUtils.addPercussion().toString();
+        assertTrue(percussionLayers.contains("PEDAL_HI_HAT"));
+        assertTrue(percussionLayers.contains("ACOUSTIC_SNARE"));
+        assertTrue(percussionLayers.contains("CRASH_CYMBAL_1"));
+        assertTrue(percussionLayers.contains("BASS_DRUM"));
+    }
 
     @Test
     public void testDecideTempoInitial() {
