@@ -1,12 +1,10 @@
 import Mood.*;
 import org.junit.Test;
-import java.util.Arrays;
-import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 
 public class MoodTests {
-    Mood mood;
+    private Mood mood;
 
     @Test
     public void TestDownbeatKey() {
