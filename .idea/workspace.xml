@@ -17,32 +17,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ScoreInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ScoreInterface.java">
+      <file leaf-file-name="ScoreBuilder.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ScoreBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Score.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Score.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+            <state relative-caret-position="597">
+              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#734#735#0" expanded="true" />
+                <element signature="e#773#774#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScoreTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/ScoreTest.java">
+      <file leaf-file-name="Score.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Score.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1013">
-              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+            <state relative-caret-position="-168">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,8 +51,8 @@
         <option value="HTML File" />
         <option value="Enum" />
         <option value="CSS File" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -103,9 +96,10 @@
         <option value="$PROJECT_DIR$/tests/MoodUtilsTest.java" />
         <option value="$PROJECT_DIR$/src/ScoreInterface.java" />
         <option value="$PROJECT_DIR$/src/ScoreImpl.java" />
-        <option value="$PROJECT_DIR$/tests/ScoreTest.java" />
-        <option value="$PROJECT_DIR$/src/ScoreBuilder.java" />
         <option value="$PROJECT_DIR$/src/Score.java" />
+        <option value="$PROJECT_DIR$/tests/ScoreTest.java" />
+        <option value="$PROJECT_DIR$/src/ScoreBuilderInterface.java" />
+        <option value="$PROJECT_DIR$/src/ScoreBuilder.java" />
       </list>
     </option>
   </component>
@@ -180,10 +174,10 @@
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../jfugue-5.0.9.jar!/" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -218,57 +212,6 @@
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="MoodTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="playsoundstation" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MoodTests" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="MoodTests.TestDownbeat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="playsoundstation" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MoodTests" />
-      <option name="METHOD_NAME" value="TestDownbeat" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="MoodTests.testDownbeatPercussionBeats" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="playsoundstation" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MoodTests" />
-      <option name="METHOD_NAME" value="testDownbeatPercussionBeats" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
     <configuration name="MoodUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="playsoundstation" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -286,13 +229,64 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="MoodUtilsTest.testAddPercussionBeats" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="playsoundstation" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MoodUtilsTest" />
-      <option name="METHOD_NAME" value="testAddPercussionBeats" />
+      <option name="MAIN_CLASS_NAME" value="ScoreTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="ScoreTest.checkInitialisingScore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="playsoundstation" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ScoreTest" />
+      <option name="METHOD_NAME" value="checkInitialisingScore" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="ScoreTest.checkStartNewVoiceString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="playsoundstation" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ScoreTest" />
+      <option name="METHOD_NAME" value="checkStartNewVoiceString" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="ScoreTest.updateScoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="playsoundstation" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ScoreTest" />
+      <option name="METHOD_NAME" value="updateScoreTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -513,19 +507,19 @@
     </configuration>
     <list>
       <item itemvalue="Tomcat Server.Tomcat 9" />
-      <item itemvalue="JUnit.MoodTests.TestDownbeat" />
-      <item itemvalue="JUnit.MoodTests.testDownbeatPercussionBeats" />
-      <item itemvalue="JUnit.MoodTests" />
       <item itemvalue="JUnit.MoodUtilsTest" />
-      <item itemvalue="JUnit.MoodUtilsTest.testAddPercussionBeats" />
+      <item itemvalue="JUnit.ScoreTest" />
+      <item itemvalue="JUnit.ScoreTest.checkStartNewVoiceString" />
+      <item itemvalue="JUnit.ScoreTest.checkInitialisingScore" />
+      <item itemvalue="JUnit.ScoreTest.updateScoreTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ScoreTest" />
+        <item itemvalue="JUnit.ScoreTest.updateScoreTest" />
+        <item itemvalue="JUnit.ScoreTest.checkInitialisingScore" />
+        <item itemvalue="JUnit.ScoreTest.checkStartNewVoiceString" />
         <item itemvalue="JUnit.MoodUtilsTest" />
-        <item itemvalue="JUnit.MoodUtilsTest.testAddPercussionBeats" />
-        <item itemvalue="JUnit.MoodTests" />
-        <item itemvalue="JUnit.MoodTests.testDownbeatPercussionBeats" />
-        <item itemvalue="JUnit.MoodTests.TestDownbeat" />
       </list>
     </recent_temporary>
   </component>
@@ -551,44 +545,44 @@
       <workItem from="1531903135867" duration="4613000" />
       <workItem from="1531912473600" duration="12621000" />
       <workItem from="1531996949731" duration="13503000" />
-      <workItem from="1532033455692" duration="9669000" />
+      <workItem from="1532033455692" duration="12658000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MoodTests - 2018.07.20 at 13h 17m 22s.xml">
-      <configuration name="MoodTests" configurationId="JUnit" />
+    <history-entry file="ScoreTest_checkInitialisingScore - 2018.07.20 at 15h 00m 29s.xml">
+      <configuration name="ScoreTest.checkInitialisingScore" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoodTests - 2018.07.20 at 13h 18m 03s.xml">
-      <configuration name="MoodTests" configurationId="JUnit" />
+    <history-entry file="ScoreTest_checkInitialisingScore - 2018.07.20 at 15h 00m 55s.xml">
+      <configuration name="ScoreTest.checkInitialisingScore" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoodTests - 2018.07.20 at 13h 19m 51s.xml">
-      <configuration name="MoodTests" configurationId="JUnit" />
+    <history-entry file="ScoreTest_checkInitialisingScore - 2018.07.20 at 15h 01m 11s.xml">
+      <configuration name="ScoreTest.checkInitialisingScore" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoodTests - 2018.07.20 at 13h 21m 54s.xml">
-      <configuration name="MoodTests" configurationId="JUnit" />
+    <history-entry file="ScoreTest_checkInitialisingScore - 2018.07.20 at 15h 01m 18s.xml">
+      <configuration name="ScoreTest.checkInitialisingScore" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoodTests - 2018.07.20 at 13h 24m 58s.xml">
-      <configuration name="MoodTests" configurationId="JUnit" />
+    <history-entry file="ScoreTest_checkInitialisingScore - 2018.07.20 at 15h 01m 42s.xml">
+      <configuration name="ScoreTest.checkInitialisingScore" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoodTests - 2018.07.20 at 13h 25m 10s.xml">
-      <configuration name="MoodTests" configurationId="JUnit" />
+    <history-entry file="ScoreTest_checkInitialisingScore - 2018.07.20 at 15h 01m 55s.xml">
+      <configuration name="ScoreTest.checkInitialisingScore" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoodUtilsTest - 2018.07.20 at 13h 34m 38s.xml">
-      <configuration name="MoodUtilsTest" configurationId="JUnit" />
+    <history-entry file="ScoreTest_checkInitialisingScore - 2018.07.20 at 15h 24m 23s.xml">
+      <configuration name="ScoreTest.checkInitialisingScore" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoodUtilsTest_testAddPercussionBeats - 2018.07.20 at 13h 35m 47s.xml">
-      <configuration name="MoodUtilsTest.testAddPercussionBeats" configurationId="JUnit" />
+    <history-entry file="ScoreTest_checkInitialisingScore - 2018.07.20 at 15h 24m 40s.xml">
+      <configuration name="ScoreTest.checkInitialisingScore" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoodUtilsTest_testAddPercussionBeats - 2018.07.20 at 13h 36m 39s.xml">
-      <configuration name="MoodUtilsTest.testAddPercussionBeats" configurationId="JUnit" />
+    <history-entry file="ScoreTest_updateScoreTest - 2018.07.20 at 15h 24m 49s.xml">
+      <configuration name="ScoreTest.updateScoreTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MoodUtilsTest - 2018.07.20 at 13h 36m 48s.xml">
-      <configuration name="MoodUtilsTest" configurationId="JUnit" />
+    <history-entry file="ScoreTest - 2018.07.20 at 15h 25m 55s.xml">
+      <configuration name="ScoreTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95956000" />
+    <option name="totallyTimeSpent" value="98945000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -613,7 +607,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3298969" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3298969" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2021858" />
       <window_info id="Web" order="2" side_tool="true" />
@@ -668,11 +662,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="10" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Genre/SynthInstruments.java" />
     <entry file="file://$PROJECT_DIR$/src/Genre/PuzzlerInstruments.java" />
     <entry file="file://$PROJECT_DIR$/src/Genre/ActionInstruments.java" />
     <entry file="file://$PROJECT_DIR$/src/butss/trest.java" />
@@ -879,16 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/MoodUtilsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-83">
-          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Mood/Upbeat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -896,20 +879,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ScoreInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-355">
+          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/GenreUtilsTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        <state relative-caret-position="204">
+          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="53" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ScoreBuilder.java">
+    <entry file="file://$PROJECT_DIR$/tests/MoodUtilsTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="9" column="64" lean-forward="true" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+        <state relative-caret-position="200">
+          <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="66" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -918,27 +908,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/ScoreTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1013">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        <state relative-caret-position="2082">
+          <caret line="132" column="5" selection-start-line="132" selection-start-column="5" selection-end-line="132" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ScoreInterface.java">
+    <entry file="file://$PROJECT_DIR$/src/ScoreBuilderInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        <state relative-caret-position="51">
+          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Score.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+        <state relative-caret-position="-168">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ScoreBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#734#735#0" expanded="true" />
+            <element signature="e#773#774#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -949,7 +951,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>playsoundstation:war exploded</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
