@@ -6,7 +6,6 @@ public class Sim implements Genre {
     private String[] instruments = {"NEW_AGE", "SWEEP", "WARM", "POLY_SYNTH", "CHOIR",
             "BOWED", "METALLIC", "HALO", "SYNTH_BRASS_1", "SYNTH_BRASS_2"};
 
-
     @Override
     public String[] getBassNoteLengths() {
         return bassNoteLengths;

@@ -6,7 +6,6 @@ public class RPG implements Genre {
     private String[] instruments = {"VIOLIN", "VIOLA", "CELLO", "FLUTE", "OCARINA",
             "CLARINET", "ORCHESTRAL_STRINGS"};
 
-
     @Override
     public String[] getBassNoteLengths() {
         return bassNoteLengths;
