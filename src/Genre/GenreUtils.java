@@ -1,18 +1,13 @@
 package Genre;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class GenreUtils {
 
-    private static String[] instruments;
     private static Genre genreClass;
 
     /**
-     * Takes the genre of the piece of music being build and saves it so that other
+     * Takes the genre of the piece of music being built and saves it so that other
      * methods can change what they're doing based on the information within that specific genre class
-     * @param genre
+     * @param genre - the Genre subclass that is being used
      */
     public static void setGenre(Genre genre) {
         genreClass = genre;
@@ -26,50 +21,59 @@ public class GenreUtils {
         return genreClass;
     }
 
-    /**
-     * saves the instruments that can be used from the Genre class being considered
-     */
-    public static void setInstruments() {
-        instruments = genreClass.getInstruments();
-    }
 
     /**
-     *
-     * @return the instruments that have been saved from the Genre class
-     */
-    public static String[] returnInstruments() {
-        return instruments;
-    }
-
-    /**
-     * From the instruments that have been saved from the genre class, selects one at random to
+     * Retrieves the list of available instruments from the Genre class and selects one at random to
      * use for the line of melody being considered
      * @return random instrument as a String to use in a String of melody
      */
 
     public static String getRandomInstrument() {
-        return instruments[(int) (Math.random()*instruments.length)].toString();
+        String[] instruments = genreClass.getInstruments();
+        return instruments[(int) (Math.random()*instruments.length)];
     }
 
     /**
      *  Selects a random Bass instrument to use for the bassline of the piece of music,
-     *  then random selects a series of notes or rests to be used for that bassline
+     *  checks if it's appropriate to have a bassline, and calls a method to get the melody
      * @param numOfNotes
      * @return String that contains the bass melody and instrument
      */
     public static String setBassline(int numOfNotes) {
+        //retrieves a random instrument from BassInstruments enum
         BassInstruments instrument =
                 BassInstruments.values()[(int)(Math.random()*BassInstruments.values().length)];
-        String[] noteLengths = genreClass.getBassNoteLengths();
-        String[] letters = {"A3", "B3", "C3", "D3", "E3", "F3", "G3", "R"};
 
+        //puzzlers and horror games don't always require a bassline as both often use minimalistic tones
+        //the chance variable and if statement ensures that both only have a bassline 50% of the time
+        int chance = (int) Math.ceil(Math.random() * 2);
+        if(((genreClass instanceof Horror) || (genreClass instanceof Puzzler)) && (chance == 1)){
+            return "";
+        } else {
+            return "I[" + instrument + "] " + makeBassMelody(numOfNotes);
+        }
+    }
+
+    /**
+     * Algorithm for building the melody of the bass by randomly selecting notes and appropriate note lengths
+     * from the genre class, then building these into a melody
+     * @param numOfNotes
+     * @return String of bassline score
+     */
+    private static String makeBassMelody(int numOfNotes) {
+        //retrieving the assigned note lengths for the bassline from the relevant Genre
+        String[] noteLengths = genreClass.getBassNoteLengths();
+
+        //List of notes available, marked with a "3" each (apart from a rest) to denote the lower octave
+        String[] letters = {"A3", "B3", "C3", "D3", "E3", "F3", "G3", "R"};
+        //melody of bassline being built
         String melody = "";
-        for(int i = 0; i < numOfNotes; i++) {
+        for (int i = 0; i < numOfNotes; i++) {
+            //selecting a random note and random length to add to melody
             String note = letters[(int) (Math.random() * letters.length)];
             String length = noteLengths[(int) (Math.random() * noteLengths.length)];
-
             melody += (note + length + " ");
         }
-        return "I[" + instrument + "] " + melody;
+        return melody;
     }
 }
