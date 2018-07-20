@@ -1,96 +1,87 @@
 import Genre.*;
 import Mood.*;
-import Function.*;
 import org.jfugue.pattern.Pattern;
-import org.jfugue.rhythm.Rhythm;
 
-public class Score {
-    public Score(Genre g, Mood m) {
-        genre = g;
-        mood = m;
-        GenreUtils.setGenre(g);
-        MoodUtils.setMood(m);
+public class Score implements ScoreInterface {
+    public Score(Genre genre, Mood mood) {
+        /*
+         * The score class itself doesn't need to know the mood and genre, so the constructor passes the knowledge of
+         * mood and genre over to the Utils classes and uses those classes directly
+         */
+        GenreUtils.setGenre(genre);
+        MoodUtils.setMood(mood);
     }
     //this will increment with each voice added to the sound
-    int counter = 0;
-    String score;
-    Genre genre;
-    Mood mood;
-    Function function;
-    String instrument;
-    String melody;
-    String key;
-    String tempo;
-    Pattern percussion;
+    private int counter = 0;
+    //holds the overall score so far
+    private String score;
 
+    public int getCounter() {
+        return counter;
+    }
 
+    @Override
     public String startNewVoice() {
         String result = " V" + counter + " ";
         counter++;
         return result;
     }
 
+    @Override
     public String getScore() {
         return score;
     }
 
-    public void setInstrument() {
-        GenreUtils.setInstruments();
-        instrument = " I[" + GenreUtils.getRandomInstrument() + "] ";
-    }
-
+    @Override
     public String getInstrument() {
-        return instrument;
+        return " I[" + GenreUtils.getRandomInstrument() + "] ";
     }
 
-    public void setKey() {
-        key = " KEY:" + MoodUtils.setKey();
-    }
-
+    @Override
     public String getKey() {
-        return key;
+        return " KEY:" + MoodUtils.setKey();
     }
 
-    public void setTempo() {
-        tempo = MoodUtils.decideTempo();
+
+    @Override
+    public String getTempo() {
+        return MoodUtils.decideTempo();
     }
 
+    @Override
     public void initialiseScore() {
-        score = tempo + key + startNewVoice() + instrument + makeNewMelody();
+        score = getTempo() + getKey() + startNewVoice() + getInstrument() + makeNewMelody();
     }
 
-    private String makeNewMelody() {
-        melody = "";
+    @Override
+    public String makeNewMelody() {
+        String melody = "";
+        //These String arrays hold the possible note pitches and lengths that can be used for the melody
         String[] letters = {"A", "B", "C", "D", "E", "F", "G", "R"};
         String[] noteLengths = { "w", "h", "q", "i" };
+
+        //the for loop selects 16 notes from the pitches and lengths, puts them together and adds them to the melody
         for (int i = 0; i < 16; i++) {
             String note = letters[(int) (Math.random() * letters.length)];
             String length = noteLengths[(int) (Math.random() * noteLengths.length)];
-
             melody += (note + length + " ");
         }
         return melody;
     }
 
+    @Override
     public void addBass() {
         String bassline = GenreUtils.setBassline(16);
-        System.out.println("We have no bassline");
-        if(bassline != "") {
-            System.out.println("We have a bassline!");
+        if(!bassline.equals("")) {
             score = score + startNewVoice() + bassline;
         }
     }
-    public void setPercussion() {
-        percussion = MoodUtils.addPercussion();
-    }
-
     public Pattern getPercussion() {
-        return percussion;
+        return MoodUtils.addPercussion();
     }
 
     public void updateScore() {
-        setInstrument();
-
-        score = score + startNewVoice() + instrument + makeNewMelody();
+        //calling setInstrument selects a different random instrument for the next voice
+        score = score + startNewVoice() + getInstrument() + makeNewMelody();
     }
 }
