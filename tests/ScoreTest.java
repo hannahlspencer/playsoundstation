@@ -132,14 +132,11 @@ public class ScoreTest {
         assertEquals('[', scoreComponents[4].charAt(1));
     }
 
-
     @Test
     public void updateScoreTest() {
         score.initialiseScore();
         score.updateScore();
-        System.out.println(score.getScore());
+        //ensures there's a second voice that's been added
         assertTrue(score.getScore().contains("V1"));
     }
-
-
 }
