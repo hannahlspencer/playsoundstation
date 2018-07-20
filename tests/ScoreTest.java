@@ -31,7 +31,7 @@ public class ScoreTest {
     @Test
     public void checkStartNewVoice() {
         score.startNewVoice();
-        assertEquals(score.counter, 1);
+        assertEquals(score.getCounter(), 1);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class ScoreTest {
 
     @Test
     public void checkInstruments() {
-        score.setInstrument();
+        score.getInstrument();
         String instrument = score.getInstrument();
         assertEquals(' ', instrument.charAt(0));
         assertEquals('I', instrument.charAt(1));
@@ -58,7 +58,7 @@ public class ScoreTest {
 
     @Test
     public void checkAppropriateInstrument() {
-        score.setInstrument();
+        score.getInstrument();
         String instrument = score.getInstrument();
         instrument = instrument.replaceAll("[\\[\\] ]", "");
         instrument = instrument.substring(1);
@@ -68,13 +68,13 @@ public class ScoreTest {
 
     @Test
     public void checkSetKeyInitial() {
-        score.setKey();
+        score.getKey();
         String initialString = score.getKey().substring(0, 5);
         assertEquals(" KEY:", initialString);
     }
     @Test
     public void checkSetKeyEnd() {
-        score.setKey();
+        score.getKey();
         String endString = score.getKey();
         endString = endString.substring(endString.length() - 3, endString.length());
         assertEquals("min", endString);
@@ -82,7 +82,7 @@ public class ScoreTest {
 
     @Test
     public void checkNotes() {
-        score.setKey();
+        score.getKey();
         String note = score.getKey();
         note = note.substring(5, note.length() - 3);
         List notes = new ArrayList<Character>();
