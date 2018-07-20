@@ -21,19 +21,11 @@ public class GenreUtilsTest {
     public void setGenreTest(){
        assertTrue(GenreUtils.getGenre() instanceof Action);
     }
-
-    @Test
-    public void getInstrumentsTest() {
-        GenreUtils.setInstruments();
-        String[] expected = {"ROCK_ORGAN", "OVERDRIVEN_GUITAR", "GUITAR_HARMONICS", "DISTORTION_GUITAR"};
-        String[] result = GenreUtils.returnInstruments();
-        assertTrue(Arrays.equals(expected, result));
-    }
+    
 
 
     @Test
     public void getRandomInstrumentTest() {
-        GenreUtils.setInstruments();
         String result = GenreUtils.getRandomInstrument();
         List expected = new ArrayList<String>();
         expected.add("ROCK_ORGAN");
