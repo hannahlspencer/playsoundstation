@@ -11,11 +11,16 @@ public class MoodUtils {
     /**
      * Takes the mood of the piece of music being build and saves it so that other
      * methods can change what they're doing based on the information within that specific class
-     * @param mood
+     * @param mood - subclass of Mood that has been selected by the user
      */
     public static void setMood(Mood mood) {
         moodClass = mood;
     }
+
+    /**
+     * getter for the Mood subclass
+     * @return Mood subclass
+     */
     public static Mood getMood() { return moodClass; }
 
     /**
@@ -71,12 +76,16 @@ public class MoodUtils {
      * @return String that will state the tempo of the piece
      */
     public static String decideTempo() {
+        //Initial notation for tempo in JFugue starts with T
         String initial = "T";
+        //recommended range is fetched from the Mood
         int[] range = moodClass.getTempoRange();
+        //random number between the two range recommendations is chosen
         Random r = new Random();
         int low = range[0];
         int high = range[1];
         int result = r.nextInt(high-low) + low;
+        //initial notation plus the chosen number within the range is returned
         return initial + result;
     }
 }
