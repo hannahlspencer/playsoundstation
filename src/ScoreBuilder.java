@@ -17,7 +17,7 @@ public class ScoreBuilder {
         score = new Score(genre, mood);
         setUpScore();
         setBassAndPercussion();
-        score.updateScore();
+        //score.updateScore();
         return convertTrack();
     }
 

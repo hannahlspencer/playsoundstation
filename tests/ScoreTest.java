@@ -16,7 +16,7 @@ public class ScoreTest {
     private Genre genre;
     private Mood mood;
     private Score score;
-    
+
     @Before
     public void initialise() {
         genre = new Horror();

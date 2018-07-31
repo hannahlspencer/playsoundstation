@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="playsoundstation:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/playsoundstation_war</output-path>
+    <root id="archive" name="playsoundstation_war.war">
+      <element id="artifact" artifact-name="playsoundstation:war exploded" />
+    </root>
+  </artifact>
+</component>
