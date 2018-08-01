@@ -54,13 +54,13 @@ public class MoodUtils {
         Rhythm rhythm = new Rhythm();
         //goes through each instrument
         for(int i = 0; i < moodPercussion.length; i++) {
-            char[] starterRhythm = "............".toCharArray();
+            char[] starterRhythm = "........".toCharArray();
             Random r = new Random();
             String layer = "";
             //adds in up to the recommended number of instrument noises per 12 beats
             for(int j = 0; j < moodClass.getBeats(); j++) {
                 char[] p = starterRhythm;
-                //picks a random beat out of the 12
+                //picks a random beat out of the 8
                 p[r.nextInt(starterRhythm.length)] = moodPercussion[i];
                 layer = new String(p);
             }
