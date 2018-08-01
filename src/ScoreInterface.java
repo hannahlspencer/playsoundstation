@@ -43,9 +43,10 @@ public interface ScoreInterface {
 
     /**
      * This method randomly creates a String of notes paired with note lengths as a representation of a melody
+     * It takes a set of notes it can use (eg. notes of different octaves)
      * @return String representing the melody that the score will play
      */
-    String makeNewMelody();
+    String makeNewMelody(String[] notes);
 
     /**
      * Retrieves bassline from GenreUtils

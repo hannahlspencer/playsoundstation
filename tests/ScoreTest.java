@@ -1,4 +1,3 @@
-import org.jfugue.pattern.Pattern;
 import org.junit.Before;
 import Genre.*;
 import Mood.*;

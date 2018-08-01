@@ -45,32 +45,10 @@ public class GenreUtilsTest {
         test.add("ELECTRIC_BASS_PICK");
         test.add("ELECTRIC_BASS_FINGER");
         test.add("ACOUSTIC_BASS");
-        String bass = GenreUtils.setBassline(2);
+        String bass = GenreUtils.setBassInstrument();
         String[] bassSplit = bass.split(" ");
         String bassInstrument = bassSplit[0].replaceAll("[\\[\\] ]", "");
         bassInstrument = bassInstrument.substring(1);
         assertTrue(test.contains(bassInstrument));
-    }
-
-
-    @Test
-    public void setBasslineCheckNotes1() {
-        String bass = GenreUtils.setBassline(2);
-        String[] bassSplit = bass.split(" ");
-        assertEquals(3, bassSplit.length);
-    }
-
-    @Test
-    public void setBasslineCheckNotes0() {
-        String bass = GenreUtils.setBassline(0);
-        String[] bassSplit = bass.split(" ");
-        assertEquals(1, bassSplit.length);
-    }
-
-    @Test
-    public void setBasslineCheckNotes25() {
-        String bass = GenreUtils.setBassline(25);
-        String[] bassSplit = bass.split(" ");
-        assertEquals(26, bassSplit.length);
     }
 }
