@@ -5,7 +5,7 @@ public class Dreamy implements Mood {
     private String key = "maj";
     private int[] tempoRange = {60, 110};
     private char[] percussiveInstruments = {'X', '`', 'S'};
-    private int beats = 3;
+    private int beats = 2;
 
     @Override
     public String getKey() {
