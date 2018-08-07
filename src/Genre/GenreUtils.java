@@ -36,7 +36,6 @@ public class GenreUtils {
     /**
      *  Selects a random Bass instrument to use for the bassline of the piece of music,
      *  checks if it's appropriate to have a bassline, and calls a method to get the melody
-     * @param numOfNotes
      * @return String that contains the bass melody and instrument
      */
     public static String setBassInstrument() {
@@ -57,27 +56,4 @@ public class GenreUtils {
     public static String[] getBassNotes() {
         return genreClass.getBassNoteLengths();
     }
-
-//    /**
-//     * Algorithm for building the melody of the bass by randomly selecting notes and appropriate note lengths
-//     * from the genre class, then building these into a melody
-//     * @param numOfNotes
-//     * @return String of bassline score
-//     */
-//    private static String[] makeBassMelody(String[] notes) {
-//        //retrieving the assigned note lengths for the bassline from the relevant Genre
-//        String[] noteLengths = genreClass.getBassNoteLengths();
-//
-//        //List of notes available, marked with a "3" each (apart from a rest) to denote the lower octave
-//        String[] letters = {"A3", "B3", "C3", "D3", "E3", "F3", "G3", "R"};
-//        //melody of bassline being built
-//        String melody = "";
-//        for (int i = 0; i < numOfNotes; i++) {
-//            //selecting a random note and random length to add to melody
-//            String note = letters[(int) (Math.random() * letters.length)];
-//            String length = noteLengths[(int) (Math.random() * noteLengths.length)];
-//            melody += (note + length + " ");
-//        }
-//        return melody;
-//    }
 }
