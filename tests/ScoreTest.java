@@ -18,14 +18,14 @@ public class ScoreTest {
 
     @Before
     public void initialise() {
-        genre = new Horror();
+        genre = new RPG();
         mood = new Scary();
-        score = new Score(genre, mood);
+        score = new Score(genre, mood, 8);
     }
 
     @Test
     public void initialiseUtilsTest() {
-        assertTrue(GenreUtils.getGenre() instanceof Horror);
+        assertTrue(GenreUtils.getGenre() instanceof RPG);
         assertTrue(MoodUtils.getMood() instanceof Scary);
     }
 
@@ -51,9 +51,8 @@ public class ScoreTest {
     public void checkInstrumentNotation() {
         score.getInstrument();
         String instrument = score.getInstrument();
-        assertEquals(' ', instrument.charAt(0));
-        assertEquals('I', instrument.charAt(1));
-        assertEquals('[', instrument.charAt(2));
+        assertEquals('I', instrument.charAt(0));
+        assertEquals('[', instrument.charAt(1));
         assertEquals(']', instrument.charAt(instrument.length() - 2));
     }
 
@@ -127,9 +126,8 @@ public class ScoreTest {
         assertTrue(scoreComponents[1].contains("min"));
         //checks the voice is the first one
         assertEquals("V0", scoreComponents[2] );
-        //skips one due to an extra space; checks the Instrument is next
-        assertEquals('I', scoreComponents[4].charAt(0));
-        assertEquals('[', scoreComponents[4].charAt(1));
+        assertEquals('I', scoreComponents[3].charAt(0));
+        assertEquals('[', scoreComponents[3].charAt(1));
     }
 
     @Test

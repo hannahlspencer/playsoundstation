@@ -67,7 +67,7 @@ public class GenreTests {
         genre = new Strategy();
         String[] bassNoteLengths = {"w", "h"};
         List bass2 = Arrays.asList(bassNoteLengths);
-        String[] instruments = {"VIBRAPHONE", "TRUMPET", "MUTED_TRUMPET", "TUBA"};
+        String[] instruments = {"TRUMPET", "MUTED_TRUMPET", "TUBA", "VIOLIN"};
         List instrumentList = Arrays.asList(instruments);
         assertEquals(bass2, Arrays.asList(genre.getBassNoteLengths()));
         assertEquals(instrumentList,Arrays.asList(genre.getInstruments()));
