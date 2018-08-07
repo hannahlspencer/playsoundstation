@@ -3,13 +3,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="style.css" />
   <script src="script.js"></script>
-
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+          crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="container-fluid">
+<div class="section first-section" id="first">
+    <h1 class="text-center" id="intro-name">PlaySoundStation</h1><br><br>
+    <h3 class="text-center" id="blurb">
+      This program algorithmically generates music based on the parameters that you set.<br>
+      Once you set your preferences and click Download, you'll receive a midi file that you can place straight into
+      your game.
+          </h3>
+</div>
 <form action="MusicServlet" method="POST" id='inputForm' style="align: center;">
+  <div class="section second-section" id="second">
   <label>What genre is your game?</label> <br>
+    <div class="menu">
   <select name="genre" id="genre">
     <option value="Action">Action</option>
     <option value="RPG">RPG</option>
@@ -17,16 +37,49 @@
     <option value="Sim">Sim</option>
     <option value="Strategy">Strategy</option>
     <option value="Horror">Horror</option>
-  </select><br/><br/>
+  </select>
+    </div><br/><br/>
+  </div>
+
+  <div class="section third-section" id="third">
+
   <label>What mood are you looking for?</label> <br>
+    <div class="menu">
   <select name="mood" id="mood">
     <option value="Upbeat">Upbeat</option>
     <option value="Downbeat">Downbeat</option>
     <option value="Dreamy">Dreamy</option>
     <option value="Gloomy">Gloomy</option>
     <option value="Scary">Scary</option>
-  </select><br/><br/>
+  </select>
+    </div><br/><br/>
+  </div>
+  <div class="fourth-section" id="fourth">
+    <label>How long do you want the piece to be?<br><br>
+      These timings are approximate so the pieces produced may be longer or shorter than described by a few seconds</label>
+  <div class="menu">
+  <select name="bars" id="bars">
+    <option value="25">Under one minute</option>
+    <option value="60">One to three minutes</option>
+    <option value="90">Three to five minutes</option>
+    <option value="160">Five to ten minutes</option>
+  </select></div><br/><br/>
+  </div>
+  <div class="fifth-section" id="fifth">
+  <label>How many lines of melody would you like?<br><br>
+    Each song will also have a bassline and percussion based on the genre and mood you've selected</label> <br>
+  <div class="menu">
+  <select name="melody" id="melody">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+  </div><br/><br/>
+  </div>
+  <div class="sixth-section" id="sixth">
+
   <input type="submit" value="Download track" />
+  </div>
 </form>
 </body>
 </html>
