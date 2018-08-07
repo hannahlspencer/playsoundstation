@@ -1,6 +1,9 @@
 import Genre.*;
 import Mood.*;
 import org.jfugue.pattern.Pattern;
+import org.jfugue.player.Player;
+
+import javax.sound.midi.Sequence;
 
 public class ScoreBuilder {
     private static Pattern percussion = null;
@@ -14,7 +17,7 @@ public class ScoreBuilder {
      * @param bars - the number of bars the piece will have
      * @return - the piece of music that has been generated
      */
-    public static Pattern runGenerator(Genre genre, Mood mood, int bars, int melodicLines) {
+    public static Sequence runGenerator(Genre genre, Mood mood, int bars, int melodicLines) {
         score = new Score(genre, mood, bars);
 
         //adds instrumentation, key, and first melodic line
@@ -51,7 +54,7 @@ public class ScoreBuilder {
      * turns it into a single Pattern class to return to the servlet
      * @return Pattern containing the final score
      */
-    private static Pattern convertTrack() {
+    private static Sequence convertTrack() {
         Pattern tempScore = new Pattern(score.getScore());
         Pattern finalScore = new Pattern();
         System.out.println(tempScore.toString());
@@ -59,7 +62,8 @@ public class ScoreBuilder {
         if(percussion != null) {
             finalScore = new Pattern(tempScore, percussion);
         }
-        return finalScore;
+        Player player = new Player();
+        return player.getSequence(finalScore);
     }
 
 }
