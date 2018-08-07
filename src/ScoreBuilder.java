@@ -11,13 +11,23 @@ public class ScoreBuilder {
      * This method is called from the front end servlet and initiates the music generation process
      * @param genre - genre selected by the user
      * @param mood - mood selected by the user
+     * @param bars - the number of bars the piece will have
      * @return - the piece of music that has been generated
      */
-    public static Pattern runGenerator(Genre genre, Mood mood) {
-        score = new Score(genre, mood);
+    public static Pattern runGenerator(Genre genre, Mood mood, int bars, int melodicLines) {
+        score = new Score(genre, mood, bars);
+
+        //adds instrumentation, key, and first melodic line
+        //removes 1 from melodicLines as the first melodic line is done
         setUpScore();
+        int linesLeft = melodicLines - 1;
+
+        //if the user has selected more than one melodic line, these are added with the updateScore method
+        for(int i = 0; i < linesLeft; i++) {
+            score.updateScore();
+        }
         setBassAndPercussion();
-        //score.updateScore();
+
         return convertTrack();
     }
 
@@ -44,10 +54,10 @@ public class ScoreBuilder {
     private static Pattern convertTrack() {
         Pattern tempScore = new Pattern(score.getScore());
         Pattern finalScore = new Pattern();
-
+        System.out.println(tempScore.toString());
         //if statement ensures the percussion has been assigned properly
         if(percussion != null) {
-            finalScore = new Pattern(tempScore, percussion.repeat(10));
+            finalScore = new Pattern(tempScore, percussion);
         }
         return finalScore;
     }
