@@ -19,7 +19,9 @@ public class MusicServlet extends HttpServlet {
         //retrieving selected genre and mood as Strings
         String genre = request.getParameter("genre");
         String mood = request.getParameter("mood");
-
+        //number of bars that will be made when the music is generated
+        int bars = Integer.parseInt(request.getParameter("bars"));
+        int melodicLines = Integer.parseInt(request.getParameter("melody"));
         //turning String selections into their relevant classes
         Genre genreClass = interpretGenre(genre);
         Mood moodClass = interpretMood(mood);
@@ -27,17 +29,17 @@ public class MusicServlet extends HttpServlet {
         //if statement prevents any accidental nulls
         if(mood != null && genre != null) {
             //runs the ScoreBuilder and generates the piece of music that is then saved to song
-            Pattern song = ScoreBuilder.runGenerator(genreClass, moodClass);
+            Pattern song = ScoreBuilder.runGenerator(genreClass, moodClass, bars, melodicLines);
 
             //the Pattern version of the song is then turned into a Sequence for download
             Player player = new Player();
-            Sequence x = player.getSequence(song);
+            Sequence finalTrack = player.getSequence(song);
 
             //HTTP responses set
             response.setContentType("audio/mid");
             response.addHeader("Content-disposition", "attachment; filename=song.mid");
             OutputStream responseOutputStream = response.getOutputStream();
-            MidiSystem.write(x,1, responseOutputStream);
+            MidiSystem.write(finalTrack,1, responseOutputStream);
         }
     }
 
