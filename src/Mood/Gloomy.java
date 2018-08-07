@@ -5,7 +5,7 @@ public class Gloomy implements Mood {
     private String key = "min";
     private int[] tempoRange = {40, 80};
     private char[] percussiveInstruments = {'`', '+', 'O'};
-    private int beats = 2;
+    private int beats = 1;
 
     @Override
     public String getKey() {
@@ -27,3 +27,4 @@ public class Gloomy implements Mood {
         return percussiveInstruments;
     }
 }
+
