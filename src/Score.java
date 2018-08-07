@@ -2,21 +2,26 @@ import Genre.*;
 import Mood.*;
 import org.jfugue.pattern.Pattern;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Score implements ScoreInterface {
-    public Score(Genre genre, Mood mood) {
+    public Score(Genre genre, Mood mood, int bars) {
         /*
          * The score class itself doesn't need to know the mood and genre, so the constructor passes the knowledge of
          * mood and genre over to the Utils classes and uses those classes directly
          */
         GenreUtils.setGenre(genre);
         MoodUtils.setMood(mood);
+        barsToWrite = bars;
     }
     //this will increment with each voice added to the sound
     private int counter = 0;
     //holds the overall score so far
     private String score;
+    private int barsToWrite;
+    private List<String> notes = new ArrayList<>();
 
     public int getCounter() {
         return counter;
@@ -63,14 +68,16 @@ public class Score implements ScoreInterface {
         //this variable keeps track of the notes in each bar, and a new bar is created whenever this reaches 4
         double barLength = 0;
         //the for loop selects 16 notes from the pitches and lengths, puts them together and adds them to the melody
-        while (bars < 8) {
+        while (bars < barsToWrite) {
             String note = notes[(int) (Math.random() * notes.length)];
-            String length = "";
+            String length;
             //this checks if it's a bass note
             if(note.contains("3")) {
                 String[] noteLengths = GenreUtils.getBassNotes();
-                length = chooseBassNoteLength(barLength,noteLengths);
-                if(length == "") {
+                length = chooseNoteLength(barLength);
+                //this checks that the note returned matches with the note lengths that are appropriate for the Genre being
+                //used. If not, then the note is turned into a rest and the length is chosen according to the bar
+                if(!Arrays.asList(noteLengths).contains(length)) {
                     note = "R";
                     length = chooseNoteLength(barLength);
                 }
@@ -79,10 +86,10 @@ public class Score implements ScoreInterface {
             }
             barLength += checkBar(length);
             melody += (note + length + " ");
-            //if the bar length is 4, then a barline is added, the number of bars incremented, and the
+            //if the bar length is 4, then a bar line is added, the number of bars incremented, and the
             //length of the bar reset to zero
             if(barLength == 4) {
-                if(bars < 7) {
+                if(bars < (barsToWrite -1)) {
                     melody += "| ";
                 }
                 bars++;
@@ -116,29 +123,6 @@ public class Score implements ScoreInterface {
         return result;
     }
 
-    private String chooseBassNoteLength(double barLength, String[] notes) {
-        double overspill = 4 - barLength;
-        System.out.println("Overspill: " + overspill);
-        String result = "";
-        if(overspill == 4) {
-            String[] noteLengths = { "q", "i", "h", "w"};
-            result = noteLengths[(int) (Math.random() * noteLengths.length)];
-        } else if (overspill >= 2) {
-            String[] noteLengths = { "q", "i", "h"};
-            result = noteLengths[(int) (Math.random() * noteLengths.length)];
-        } else if(overspill >= 1) {
-            String[] noteLengths = { "q", "i"};
-            result = noteLengths[(int) (Math.random() * noteLengths.length)];
-        } else if(overspill >= 0.5) {
-            result = "i";
-        }
-        if(!Arrays.asList(notes).contains(result)) {
-            result = "";
-        }
-        System.out.println("Result: " + result);
-        return result;
-    }
-
     /**
      * Private method that helps the makeNewMelody method by returning the representative note lengths so that bars
      * can be established ensuring that each line of melody is the same length
@@ -167,11 +151,11 @@ public class Score implements ScoreInterface {
             String[] letters = {"A3", "B3", "C3", "D3", "E3", "F3", "G3", "R"};
             String melody = makeNewMelody(letters);
             score = score + startNewVoice() + bassline + melody;
-            System.out.println("Bass melody " + melody);
+            System.out.println(score);
         }
     }
     public Pattern getPercussion() {
-        return MoodUtils.addPercussion();
+        return MoodUtils.addPercussion().repeat(barsToWrite);
     }
 
     public void updateScore() {
