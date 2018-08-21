@@ -1,5 +1,7 @@
 import org.jfugue.pattern.Pattern;
 
+import java.util.List;
+
 public interface ScoreInterface {
 
     /**
@@ -46,7 +48,16 @@ public interface ScoreInterface {
      * It takes a set of notes it can use (eg. notes of different octaves)
      * @return String representing the melody that the score will play
      */
-    String makeNewMelody(String[] notes);
+    String makeNewMelody(List<String> notes);
+
+    /**
+     * This method ensures that looping the track is seamless by making the final note of the piece the tonic note
+     * of the key, which then means any note that the track starts with sounds like it's continuing from that
+     * note rather than doing a note jump
+     * @param melody
+     * @return updated melody with amended final note
+     */
+    String fixFinalNote(String melody);
 
     /**
      * Retrieves bassline from GenreUtils
