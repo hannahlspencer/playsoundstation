@@ -48,7 +48,7 @@ public class MoodUtils {
      * number of recommended beats to that layer. The first for loop then adds that layer to the rhythm
      * @return Rhythm type with all the layers that can be fed into a player that creates percussive sounds
      */
-    public static Pattern addPercussion() {
+    public static Pattern addPercussion(int bars) {
         //fetches instruments
         char[] moodPercussion = moodClass.getPercussiveInstruments();
         Rhythm rhythm = new Rhythm();
@@ -59,7 +59,16 @@ public class MoodUtils {
             Random r = new Random();
             String layer = "";
             //adds in up to the recommended number of instrument noises per beats
-            int beats = moodClass.getBeats();
+            int beats = 0;
+            if(moodPercussion[i] == '+') {
+                int chance = r.nextInt(5);
+                System.out.println(chance);
+                if(chance > 3) {
+                    beats = 1;
+                }
+            } else {
+                beats = moodClass.getBeats();
+            }
             for(int j = 0; j < beats; j++) {
                 char[] p = starterRhythm;
                 //picks a random beat to add the selected instrument to
