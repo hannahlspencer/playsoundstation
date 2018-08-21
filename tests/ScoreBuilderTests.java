@@ -15,10 +15,10 @@ public class ScoreBuilderTests {
 
     @Before
     public void initialise() {
-        scoreComponents = ScoreBuilder.runGenerator(new Strategy(), new Gloomy(), 8, 1).toString().split(" ");
-        scoreComponentsTwoMelody = ScoreBuilder.runGenerator(new Strategy(), new Gloomy(), 8, 2).toString().split(" ");
-        scoreComponentsThreeMelody = ScoreBuilder.runGenerator(new Strategy(), new Gloomy(), 8, 3).toString().split(" ");
-
+        scoreComponents = ScoreBuilder.runGenerator("Strategy", "Gloomy", 8, 1).toString().split(" ");
+        scoreComponentsTwoMelody = ScoreBuilder.runGenerator("Strategy", "Gloomy", 8, 2).toString().split(" ");
+        scoreComponentsThreeMelody = ScoreBuilder.runGenerator("Strategy", "Gloomy", 8, 3).toString().split(" ");
+        System.out.println("Score components: " + scoreComponents.toString());
     }
 
     @Test
