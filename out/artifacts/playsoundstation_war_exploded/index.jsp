@@ -54,18 +54,18 @@
   </select>
     </div><br/><br/>
   </div>
-  <div class="fourth-section" id="fourth">
+  <div class="section fourth-section" id="fourth">
     <label>How long do you want the piece to be?<br><br>
       These timings are approximate so the pieces produced may be longer or shorter than described by a few seconds</label>
   <div class="menu">
   <select name="bars" id="bars">
-    <option value="25">Under one minute</option>
-    <option value="60">One to three minutes</option>
-    <option value="90">Three to five minutes</option>
+    <option value="32">Under one minute</option>
+    <option value="64">One to three minutes</option>
+    <option value="106">Three to five minutes</option>
     <option value="160">Five to ten minutes</option>
   </select></div><br/><br/>
   </div>
-  <div class="fifth-section" id="fifth">
+  <div class="section fifth-section" id="fifth">
   <label>How many lines of melody would you like?<br><br>
     Each song will also have a bassline and percussion based on the genre and mood you've selected</label> <br>
   <div class="menu">
@@ -76,7 +76,7 @@
   </select>
   </div><br/><br/>
   </div>
-  <div class="sixth-section" id="sixth">
+  <div class="section sixth-section" id="sixth">
 
   <input type="submit" value="Download track" />
   </div>

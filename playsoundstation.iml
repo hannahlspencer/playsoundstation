@@ -35,5 +35,6 @@
     </orderEntry>
     <orderEntry type="library" name="jfugue-5.0.9" level="project" />
     <orderEntry type="library" name="com.englishtown.vertx:vertx-httpservlet:2.2.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="io.cucumber:cucumber-java8:2.1.0" level="project" />
   </component>
 </module>
