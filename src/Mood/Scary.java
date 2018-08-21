@@ -3,7 +3,7 @@ package Mood;
 public class Scary implements Mood {
 
     private String key = "min";
-    private int[] tempoRange = {80, 160};
+    private int[] tempoRange = {110, 220};
     private char[] percussiveInstruments = { '.', '`'};
     private int beats = 1;
 

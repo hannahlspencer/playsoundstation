@@ -10,7 +10,7 @@ public class Upbeat implements Mood {
     private String key = "maj";
     private int[] tempoRange = {120, 160};
     private char[] percussiveInstruments = {'`', 'S', '+', 'O'};
-    private int beats = 2;
+    private int beats = 3;
 
     @Override
     public String getKey() {

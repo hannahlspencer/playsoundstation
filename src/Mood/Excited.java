@@ -4,7 +4,7 @@ public class Excited implements Mood {
 
     private String key = "maj";
     private int[] tempoRange = { 110, 220};
-    private int beats = 2;
+    private int beats = 4;
     private char[] percussiveInstruments = {'X', 'O', '`', '+', 'S'};
 
     @Override

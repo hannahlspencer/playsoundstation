@@ -5,7 +5,7 @@ public class Downbeat implements Mood {
     private String key = "min";
     private int[] tempoRange = {80, 140};
     private char[] percussiveInstruments = {'O', '`', '+'};
-    private int beats = 1;
+    private int beats = 2;
 
     @Override
     public String getKey() {
