@@ -17,8 +17,10 @@ public class ScoreBuilder {
      * @param bars - the number of bars the piece will have
      * @return - the piece of music that has been generated
      */
-    public static Sequence runGenerator(Genre genre, Mood mood, int bars, int melodicLines) {
-        score = new Score(genre, mood, bars);
+    public static Sequence runGenerator(String genre, String mood, int bars, int melodicLines) {
+        Mood moodClass = interpretMood(mood);
+        Genre genreClass = interpretGenre(genre);
+        score = new Score(genreClass, moodClass, bars);
 
         //adds instrumentation, key, and first melodic line
         //removes 1 from melodicLines as the first melodic line is done
@@ -32,6 +34,56 @@ public class ScoreBuilder {
         setBassAndPercussion();
 
         return convertTrack();
+    }
+
+    /**
+     * This method converts the String type selection that the user makes for Mood into the corresponding
+     * Mood class
+     * @param mood as inputted by the user
+     * @return the Mood class that matches the genre selection made by the user
+     */
+    public static Mood interpretMood(String mood) {
+        String sMood = "Mood." + mood;
+        Mood moodSelected = null;
+        try {
+            Class<?> reflectMood = Class.forName(sMood);
+            moodSelected = (Mood) reflectMood.newInstance();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class wasn't found!");
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            System.out.println("There has been an Illegal Access Error");
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            System.out.println("There has been an Instantiation Exception Error");
+            e.printStackTrace();
+        }
+        return moodSelected;
+    }
+
+    /**
+     * This method converts the String type selection that the user makes for Genre into the corresponding
+     * Genre class
+     * @param genre as inputted by the user
+     * @return the Genre class that matches the genre selection made by the user
+     */
+    public static Genre interpretGenre(String genre) {
+        String sGenre = "Genre." + genre;
+        Genre genreSelected = null;
+        try {
+            Class<?> reflectGenre = Class.forName(sGenre);
+            genreSelected = (Genre) reflectGenre.newInstance();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class wasn't found!");
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            System.out.println("There has been an Illegal Access Error");
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            System.out.println("There has been an Instantiation Exception Error");
+            e.printStackTrace();
+        }
+        return genreSelected;
     }
 
     /**
@@ -61,6 +113,7 @@ public class ScoreBuilder {
         //if statement ensures the percussion has been assigned properly
         if(percussion != null) {
             finalScore = new Pattern(tempScore, percussion);
+            System.out.println(finalScore.toString());
         }
         Player player = new Player();
         return player.getSequence(finalScore);
