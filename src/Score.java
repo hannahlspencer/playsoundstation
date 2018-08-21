@@ -14,6 +14,7 @@ public class Score implements ScoreInterface {
          */
         GenreUtils.setGenre(genre);
         MoodUtils.setMood(mood);
+        ScoreUtils.initialise();
         barsToWrite = bars;
     }
     //this will increment with each voice added to the sound
@@ -21,6 +22,7 @@ public class Score implements ScoreInterface {
     //holds the overall score so far
     private String score;
     private int barsToWrite;
+    private String key;
     private List<String> notes = new ArrayList<>();
 
     public int getCounter() {
@@ -46,7 +48,8 @@ public class Score implements ScoreInterface {
 
     @Override
     public String getKey() {
-        return " KEY:" + MoodUtils.setKey();
+        key = " KEY:" + MoodUtils.setKey();
+        return key;
     }
 
 
@@ -57,40 +60,56 @@ public class Score implements ScoreInterface {
 
     @Override
     public void initialiseScore() {
-        String[] letters = {"A", "B", "C", "D", "E", "F", "G", "R"};
-        score = getTempo() + getKey() + startNewVoice() + getInstrument() + makeNewMelody(letters);
+        List notes = ScoreUtils.getAvailableNotes();
+        score = getTempo() + getKey() + startNewVoice() + getInstrument() + makeNewMelody(notes);
+        System.out.println("Initialise score: " + score);
     }
 
     @Override
-    public String makeNewMelody(String[] notes) {
+    public String makeNewMelody(List<String> notes) {
+
         String melody = "";
         int bars = 0;
         //this variable keeps track of the notes in each bar, and a new bar is created whenever this reaches 4
         double barLength = 0;
         //the for loop selects 16 notes from the pitches and lengths, puts them together and adds them to the melody
+        int thirds = barsToWrite/3;
+        Boolean keyChanged = false;
+        Boolean keyReturned = false;
         while (bars < barsToWrite) {
-            String note = notes[(int) (Math.random() * notes.length)];
+            if (bars == thirds && !keyChanged) {
+                keyChanged = true;
+                melody += keyProgression(true);
+            }
+            if(bars == thirds * 2 && !keyReturned) {
+                keyReturned = true;
+                melody += keyProgression(false);
+            }
+            String note = notes.get((int) (Math.random() * notes.size()));
             String length;
             //this checks if it's a bass note
             if(note.contains("3")) {
                 String[] noteLengths = GenreUtils.getBassNotes();
-                length = chooseNoteLength(barLength);
+                length = ScoreUtils.chooseNoteLength(barLength);
                 //this checks that the note returned matches with the note lengths that are appropriate for the Genre being
                 //used. If not, then the note is turned into a rest and the length is chosen according to the bar
                 if(!Arrays.asList(noteLengths).contains(length)) {
                     note = "R";
-                    length = chooseNoteLength(barLength);
+                    length = ScoreUtils.chooseNoteLength(barLength);
                 }
             } else {
-                length = chooseNoteLength(barLength);
+                length = ScoreUtils.chooseNoteLength(barLength);
             }
-            barLength += checkBar(length);
+            barLength += ScoreUtils.checkBar(length);
             melody += (note + length + " ");
             //if the bar length is 4, then a bar line is added, the number of bars incremented, and the
             //length of the bar reset to zero
             if(barLength == 4) {
                 if(bars < (barsToWrite -1)) {
                     melody += "| ";
+                }
+                if(bars == barsToWrite - 1) {
+                    melody = fixFinalNote(melody);
                 }
                 bars++;
                 barLength = 0;
@@ -99,68 +118,82 @@ public class Score implements ScoreInterface {
         return melody;
     }
 
-    /**
-     * Private method that chooses what note lengths are left that would suit the bar, and picks one at random
-     * from the available lengths
-     * @param barLength - how many beats are left in the current bar
-     * @return a note length that is appropriate for the bar
-     */
-    private String chooseNoteLength(double barLength) {
-        double overspill = 4 - barLength;
-        String result = "";
-        if(overspill == 4) {
-            String[] noteLengths = { "q", "i", "h", "w"};
-            result = noteLengths[(int) (Math.random() * noteLengths.length)];
-        } else if (overspill >= 2) {
-            String[] noteLengths = { "q", "i", "h"};
-            result = noteLengths[(int) (Math.random() * noteLengths.length)];
-        } else if(overspill >= 1) {
-            String[] noteLengths = { "q", "i"};
-            result = noteLengths[(int) (Math.random() * noteLengths.length)];
-        } else if(overspill >= 0.5) {
-            result = "i";
+
+
+
+
+    public String keyProgression(Boolean newKey) {
+        if(newKey) {
+            int count = 4;
+            String keyToChange = key.replaceAll("['KEY:''min''maj'' ''#''b']", "");
+            if(keyToChange.equals("")) {
+                keyToChange = "E";
+            }
+            char progress = keyToChange.charAt(0);
+            int asciiKey = progress;
+            while(count > 0) {
+                if(asciiKey == 71) {
+                    asciiKey = 65;
+                } else {
+                    asciiKey += 1;
+                }
+                count--;
+            }
+            char charKey = (char) asciiKey;
+            String updatedKey = "KEY:";
+            updatedKey += String.valueOf(charKey);
+            if(key.contains("maj")) {
+                updatedKey += "min ";
+            } else {
+                updatedKey += "maj ";
+            }
+
+            return updatedKey;
+        } else {
+            return key + " ";
         }
-        return result;
     }
 
-    /**
-     * Private method that helps the makeNewMelody method by returning the representative note lengths so that bars
-     * can be established ensuring that each line of melody is the same length
-     * @param length - the note that has been selected
-     * @return the numeric length of the note
-     */
-    private double checkBar(String length) {
-        switch(length) {
-            case "w" :
-                return 4;
-            case "h" :
-                return 2;
-            case "q":
-                return 1;
-            case "i":
-                return 0.5;
-            default:
-                return 0;
+    public String fixFinalNote(String melody) {
+        //finding the tonic note for the piece from the key signature
+        String tonic = key.replaceAll("['KEY:''min''maj'' ''#''b']", "");
+
+        if(tonic.equals("")){
+            tonic = "E";
         }
+        int noteToMinus = 3;
+        if(melody.substring(melody.length() - 3, melody.length()).contains("3")) {
+            noteToMinus = 4;
+        }
+        String noteToChange = melody.substring(melody.length() - noteToMinus, melody.length());
+        String replace = noteToChange.replace(noteToChange.charAt(0), tonic.charAt(0) );
+        String newMelody = melody.substring(0, melody.length() - noteToMinus);
+        newMelody += replace;
+        return newMelody;
     }
 
     @Override
     public void addBass() {
         String bassline = GenreUtils.setBassInstrument();
         if(!bassline.equals("")) {
-            String[] letters = {"A3", "B3", "C3", "D3", "E3", "F3", "G3", "R"};
-            String melody = makeNewMelody(letters);
+            List notes = ScoreUtils.getAvailableBassNotes();
+            String melody = makeNewMelody(notes);
             score = score + startNewVoice() + bassline + melody;
-            System.out.println(score);
+            System.out.println("Add bassline: " + score);
         }
+
     }
     public Pattern getPercussion() {
-        return MoodUtils.addPercussion().repeat(barsToWrite);
+        Pattern drums1 = MoodUtils.addPercussion(barsToWrite).repeat(barsToWrite/4);
+        Pattern drums2 = MoodUtils.addPercussion(barsToWrite).repeat(barsToWrite/4);
+        return new Pattern(drums1, drums2, drums2, drums1);
     }
 
     public void updateScore() {
-        String[] letters = {"A", "B", "C", "D", "E", "F", "G", "R"};
+        List notes = ScoreUtils.getAvailableNotes();
         //calling setInstrument selects a different random instrument for the next voice
-        score = score + startNewVoice() + getInstrument() + makeNewMelody(letters);
+        score = score + startNewVoice() + getInstrument() + makeNewMelody(notes);
+        System.out.println("Update score: " + score);
     }
+
 }
