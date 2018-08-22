@@ -5,6 +5,11 @@ body {
     text-align: center;
 }
 
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 h1 {
     font-family: 'Raleway', Arial, sans-serif;
 }
@@ -72,3 +77,24 @@ label {
 button {
     margin: 2em;
 }
+
+#info {
+    align: center;
+    width: 55%;
+    margin-left: 20em;
+}
+#info:hover {
+    -webkit-box-shadow: 1px 1px 3px #333;
+    -moz-box-shadow: 1px 1px 3px #333;
+    box-shadow: 1px 1px 3px #333;
+
+}
+.definitions {
+    display: none;
+}
+
+ul {
+    text-align: left;
+    padding-left: 12em;
+}
+
