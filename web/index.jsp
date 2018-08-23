@@ -96,7 +96,8 @@
     <input type="submit" value="Download track" />
   </div>
 </form>
-<div id="info"><h3>What do these options actually mean?</h3></div><br>
+<h3>Convert your MIDI file into an MP3/WAV file with an <a href="https://www.conversion-tool.com/midi">online conversion tool</a></h3>
+<div align="center" id="info"><h3>What do these options mean?</h3></div><br>
 <p class="definitions"><em>Genre:</em> Genre changes the instruments used and the length of the notes in the bass line. Within Genre the options are <br> <ul class="definitions">
   <li>Action - uses more rock-style instruments like electric guitar, and shorter, faster notes in the bass line</li>
   <li>RPG - uses MIDI-style strings and woodwind instruments, and long sustained notes in the bass line</li>
@@ -115,6 +116,10 @@
   <li>Upbeat - major key, tempo of 120 to 160bpm, three percussive beats per bar from bass drum, hi-hat, crash cymbal, and snare.</li>
 </ul>
 </p>
+<p class="definitions"><em>Lines of melody:</em> this is when there's more than one instrument playing notes at a time,<br> eg.
+for one line of melody you'd only have one instrument, say a piano, playing its track.<br>With two lines of melody you would have
+that piano playing its track, but, for example, a violin would also be playing a melody on top of it.</p> <br/>
+
 </body>
 </html>
 

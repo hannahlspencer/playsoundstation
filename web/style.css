@@ -79,9 +79,8 @@ button {
 }
 
 #info {
-    align: center;
-    width: 55%;
     margin-left: 20em;
+    margin-right: 20em;
 }
 #info:hover {
     -webkit-box-shadow: 1px 1px 3px #333;
