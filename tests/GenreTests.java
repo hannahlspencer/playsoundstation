@@ -14,7 +14,7 @@ public class GenreTests {
         genre = new Action();
         String[] bassNoteLengths = { "q", "i" };
         List bass2 = Arrays.asList(bassNoteLengths);
-        String[] instruments = {"ROCK_ORGAN", "OVERDRIVEN_GUITAR", "GUITAR_HARMONICS", "DISTORTION_GUITAR"};
+        String[] instruments = {"ROCK_ORGAN", "OVERDRIVEN_GUITAR", "DISTORTION_GUITAR"};
         List instrumentList = Arrays.asList(instruments);
         assertEquals(bass2, Arrays.asList(genre.getBassNoteLengths()));
         assertEquals(instrumentList,Arrays.asList(genre.getInstruments()));

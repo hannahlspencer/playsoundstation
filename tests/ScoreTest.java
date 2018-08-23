@@ -137,4 +137,15 @@ public class ScoreTest {
         //ensures there's a second voice that's been added
         assertTrue(score.getScore().contains("V1"));
     }
+
+    @Test
+    public void fixFinalNoteTest() {
+        score.initialiseScore();
+    }
+
+    @Test
+    public void fixFinalNoteTestBass() {
+        score.initialiseScore();
+        score.addBass();
+    }
 }

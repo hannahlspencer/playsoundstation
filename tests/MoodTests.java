@@ -19,7 +19,7 @@ public class MoodTests {
         assertEquals('O', actual[0]);
         assertEquals('`', actual[1]);
         assertEquals('+', actual[2]);
-        assertEquals(1, mood.getBeats());
+        assertEquals(2, mood.getBeats());
     }
 
     @Test
@@ -43,7 +43,7 @@ public class MoodTests {
         assertEquals('X', actual[0]);
         assertEquals('`', actual[1]);
         assertEquals('S', actual[2]);
-        assertEquals(1, mood.getBeats());
+        assertEquals(2, mood.getBeats());
     }
 
     @Test
@@ -69,7 +69,7 @@ public class MoodTests {
         assertEquals('`', actual[2]);
         assertEquals('+', actual[3]);
         assertEquals('S', actual[4]);
-        assertEquals(2, mood.getBeats());
+        assertEquals(4, mood.getBeats());
     }
 
     @Test
@@ -93,7 +93,7 @@ public class MoodTests {
         assertEquals('`', actual[0]);
         assertEquals('+', actual[1]);
         assertEquals('O', actual[2]);
-        assertEquals(1, mood.getBeats());
+        assertEquals(2, mood.getBeats());
     }
 
     @Test
