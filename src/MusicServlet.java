@@ -4,16 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Sequence;
-import javax.sound.sampled.AudioFileFormat;
-import javax.sound.sampled.AudioInputStream;
 import java.io.*;
-
-
-import Genre.*;
-import Mood.*;
-import com.sun.media.sound.WaveFileWriter;
-import org.jfugue.pattern.Pattern;
-import org.jfugue.player.Player;
 
 @WebServlet("/MusicServlet")
 public class MusicServlet extends HttpServlet {
@@ -35,22 +26,7 @@ public class MusicServlet extends HttpServlet {
             response.setContentType("audio/mid");
             response.addHeader("Content-disposition", "attachment; filename=song.mid");
             OutputStream responseOutputStream = response.getOutputStream();
-            MidiSystem.write(song,1, responseOutputStream); //currently being used
-
-            /**
-             * Ccould be used
-             * https://stackoverflow.com/questions/3297749/java-reading-manipulating-and-writing-wav-files
-            InputStream in = new InputStream() {
-                @Override
-                public int read() throws IOException {
-                    song;
-                }
-            }
-            WaveFileWriter writer = new WaveFileWriter();
-            writer.write(song, AudioFileFormat.Type.WAVE, responseOutputStream);
-             **/
+            MidiSystem.write(song,1, responseOutputStream);
         }
     }
-
-
 }
