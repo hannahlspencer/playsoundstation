@@ -141,11 +141,61 @@ public class ScoreTest {
     @Test
     public void fixFinalNoteTest() {
         score.initialiseScore();
+        String fixedScore = score.getScore();
+        String key = fixedScore.split(" ")[1];
+        String tonic = key.substring(4, key.length()).replaceAll("['min''maj'' ''#''b']", "");
+        String finalNote = fixedScore.substring(fixedScore.length() - 3,fixedScore.length() -2 );
+        assertEquals(tonic, finalNote);
     }
 
     @Test
     public void fixFinalNoteTestBass() {
         score.initialiseScore();
         score.addBass();
+        String fixedScore = score.getScore();
+        String key = fixedScore.split(" ")[1];
+        String tonic = key.substring(4, key.length()).replaceAll("['min''maj'' ''#''b']", "");
+        //as bass is added last, the final note will always be a bass line note
+        String finalNote = fixedScore.substring(fixedScore.length() - 4,fixedScore.length() -2 )
+                .replaceAll("['3'' ']", "");
+        assertEquals(tonic, finalNote);
+    }
+
+    @Test
+    public void testKeyProgressionChange() {
+        String key = score.getKey() + " ";
+        String keyToChange = key.substring(5, key.length()).replaceAll("['min''maj'' ''#''b']", "");
+
+        //expected note progressions
+        switch(keyToChange) {
+            case "A":
+                key = "E";
+                break;
+            case "B":
+                key = "F";
+                break;
+            case "C":
+                key = "G";
+                break;
+            case "D":
+                key = "A";
+                break;
+            case "E":
+                key = "B";
+                break;
+            case "F":
+                key = "C";
+                break;
+            case "G":
+                key = "D";
+                break;
+        }
+
+        assertTrue(score.keyProgression(true).contains(key));
+    }
+    @Test
+    public void testKeyProgressionReturn() {
+        String key = score.getKey() + " ";
+        assertEquals(key,score.keyProgression(false) );
     }
 }
