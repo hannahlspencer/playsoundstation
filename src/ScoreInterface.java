@@ -51,6 +51,16 @@ public interface ScoreInterface {
     String makeNewMelody(List<String> notes);
 
     /**
+     * The track always changes to the fifth progression of the key a third of the way through the track, then changes
+     * back a third of the track later
+     * This method calculates what the fifth progression is based on the original key and returns the new key when first
+     * called
+     * Then returns the original key a third of the track after that
+     * @param newKey whether the key to be changed to is the new key or not
+     * @return String of what key the score needs to be changed to
+     */
+    String keyProgression(Boolean newKey);
+    /**
      * This method ensures that looping the track is seamless by making the final note of the piece the tonic note
      * of the key, which then means any note that the track starts with sounds like it's continuing from that
      * note rather than doing a note jump
