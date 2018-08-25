@@ -87,6 +87,14 @@ public class ScoreBuilder {
     }
 
     /**
+     * returns score built so far for testing purposes
+     * @return Score of the score representation so far
+     */
+    public static Score getScore() {
+        return score;
+    }
+
+    /**
      * initialises the score from the ScoreBuilder to the new Score class
      */
     private static void setUpScore() {
