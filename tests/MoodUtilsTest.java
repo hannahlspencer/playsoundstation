@@ -19,7 +19,7 @@ public class MoodUtilsTest {
     }
 
     @Test
-    public void setMoodTest(){
+    public void setGetMoodTest(){
         assertTrue(MoodUtils.getMood() instanceof Upbeat);
     }
 
@@ -45,11 +45,10 @@ public class MoodUtilsTest {
 
     @Test
     public void testAddPercussionBeats() {
-        String percussionLayers = MoodUtils.addPercussion(32).toString();
+        String percussionLayers = MoodUtils.addPercussion().toString();
         System.out.println(percussionLayers);
         assertTrue(percussionLayers.contains("PEDAL_HI_HAT"));
         assertTrue(percussionLayers.contains("ACOUSTIC_SNARE"));
-        assertTrue(percussionLayers.contains("CRASH_CYMBAL_1"));
         assertTrue(percussionLayers.contains("BASS_DRUM"));
     }
 
