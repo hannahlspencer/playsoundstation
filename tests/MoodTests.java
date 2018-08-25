@@ -64,11 +64,10 @@ public class MoodTests {
     public void testExcitedPercussionBeats() {
         mood = new Excited();
         char[] actual = mood.getPercussiveInstruments();
-        assertEquals('X', actual[0]);
-        assertEquals('O', actual[1]);
-        assertEquals('`', actual[2]);
-        assertEquals('+', actual[3]);
-        assertEquals('S', actual[4]);
+        assertEquals('O', actual[0]);
+        assertEquals('`', actual[1]);
+        assertEquals('+', actual[2]);
+        assertEquals('S', actual[3]);
         assertEquals(4, mood.getBeats());
     }
 
@@ -91,8 +90,7 @@ public class MoodTests {
         mood = new Gloomy();
         char[] actual = mood.getPercussiveInstruments();
         assertEquals('`', actual[0]);
-        assertEquals('+', actual[1]);
-        assertEquals('O', actual[2]);
+        assertEquals('O', actual[1]);
         assertEquals(2, mood.getBeats());
     }
 
@@ -123,8 +121,8 @@ public class MoodTests {
     public void testScaryTempo() {
         mood = new Scary();
         int[] tempoRange = mood.getTempoRange();
-        assertEquals(80, tempoRange[0]);
-        assertEquals(160, tempoRange[1]);
+        assertEquals(110, tempoRange[0]);
+        assertEquals(220, tempoRange[1]);
     }
 
     @Test
@@ -141,7 +139,7 @@ public class MoodTests {
         assertEquals('S', actual[1]);
         assertEquals('+', actual[2]);
         assertEquals('O', actual[3]);
-        assertEquals(2, mood.getBeats());
+        assertEquals(3, mood.getBeats());
     }
 
     @Test

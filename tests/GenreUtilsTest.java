@@ -3,6 +3,7 @@ import org.junit.Test;
 import Genre.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
@@ -17,7 +18,7 @@ public class GenreUtilsTest {
     }
 
     @Test
-    public void setGenreTest(){
+    public void setGetGenreTest(){
        assertTrue(GenreUtils.getGenre() instanceof Action);
     }
     
@@ -50,5 +51,13 @@ public class GenreUtilsTest {
         String bassInstrument = bassSplit[0].replaceAll("[\\[\\] ]", "");
         bassInstrument = bassInstrument.substring(1);
         assertTrue(test.contains(bassInstrument));
+    }
+
+    @Test
+    public void testGetBassNotes() {
+        List notes = Arrays.asList(GenreUtils.getBassNotes());
+        assertTrue(notes.size() == 2);
+        assertTrue(notes.contains("q"));
+        assertTrue(notes.contains("i"));
     }
 }
