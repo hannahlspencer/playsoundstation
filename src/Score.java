@@ -62,18 +62,17 @@ public class Score implements ScoreInterface {
     public void initialiseScore() {
         List notes = ScoreUtils.getAvailableNotes();
         score = getTempo() + getKey() + startNewVoice() + getInstrument() + makeNewMelody(notes);
-        System.out.println("Initialise score: " + score);
     }
 
     @Override
     public String makeNewMelody(List<String> notes) {
-
         String melody = "";
+        //variable for bars written so far
         int bars = 0;
         //this variable keeps track of the notes in each bar, and a new bar is created whenever this reaches 4
         double barLength = 0;
         int thirds = barsToWrite/3;
-        //these booleans keep track of whether the key change has happened yet
+        //these booleans keep track of whether the key changes have happened yet
         Boolean keyChanged = false;
         Boolean keyReturned = false;
         //writes the actual music
@@ -136,6 +135,7 @@ public class Score implements ScoreInterface {
     public String keyProgression(Boolean newKey) {
         //if the newKey is true then the key needs to be changed to the V progression of the original key
         if(newKey) {
+            //count variable represents the number of steps between original key and key to move to
             int count = 4;
             //removes key information to only leave the letter note
             String keyToChange = key.substring(5, key.length()).replaceAll("['min''maj'' ''#''b']", "");
@@ -171,13 +171,19 @@ public class Score implements ScoreInterface {
     public String fixFinalNote(String melody) {
         //finding the tonic note for the piece from the key signature
         String tonic = key.substring(5, key.length()).replaceAll("['min''maj'' ''#''b']", "");
+        //3  is the character length of the note representation that needs to be found
         int noteToMinus = 3;
+        //the character length is 4 if a bass note as the note specifies the lower octave
         if(melody.substring(melody.length() - 3, melody.length()).contains("3")) {
             noteToMinus = 4;
         }
+        //finds the representation of the last note
         String noteToChange = melody.substring(melody.length() - noteToMinus, melody.length());
+        //replaces the note value (A-G) to the tonic found above
         String replace = noteToChange.replace(noteToChange.charAt(0), tonic.charAt(0) );
+        //removes the old final note from the melody
         String newMelody = melody.substring(0, melody.length() - noteToMinus);
+        //adds new final note to the end of the melody
         newMelody += replace;
         return newMelody;
     }
@@ -189,7 +195,6 @@ public class Score implements ScoreInterface {
             List notes = ScoreUtils.getAvailableBassNotes();
             String melody = makeNewMelody(notes);
             score = score + startNewVoice() + bassline + melody;
-            System.out.println("Add bassline: " + score);
         }
 
     }
@@ -203,7 +208,6 @@ public class Score implements ScoreInterface {
         List notes = ScoreUtils.getAvailableNotes();
         //calling setInstrument selects a different random instrument for the next voice
         score = score + startNewVoice() + getInstrument() + makeNewMelody(notes);
-        System.out.println("Update score: " + score);
     }
 
 }

@@ -117,11 +117,9 @@ public class ScoreBuilder {
     private static Sequence convertTrack() {
         Pattern tempScore = new Pattern(score.getScore());
         Pattern finalScore = new Pattern();
-        System.out.println(tempScore.toString());
         //if statement ensures the percussion has been assigned properly
         if(percussion != null) {
             finalScore = new Pattern(tempScore, percussion);
-            System.out.println(finalScore.toString());
         }
         Player player = new Player();
         return player.getSequence(finalScore);
