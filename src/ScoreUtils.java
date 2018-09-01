@@ -84,6 +84,6 @@ public class ScoreUtils {
             adjustedNoteLengths.add("h");
             adjustedNoteLengths.add("w");
         }
-        return adjustedNoteLengths.get((int) (Math.random() * adjustedNoteLengths.size())).toString();
+        return adjustedNoteLengths.get((int) (Math.random() * adjustedNoteLengths.size()));
     }
 }
