@@ -101,7 +101,7 @@
 <p class="definitions"><em>Genre:</em> Genre changes the instruments used and the length of the notes in the bass line. Within Genre the options are <br> <ul class="definitions">
   <li>Action - uses more rock-style instruments like electric guitar, and shorter, faster notes in the bass line</li>
   <li>RPG - uses MIDI-style strings and woodwind instruments, and long sustained notes in the bass line</li>
-  <li>Puzzle - uses sharp synth instruments and any notes in the bass</li>
+  <li>Puzzle - uses sharp synth instruments and any note lengths in the bass</li>
   <li>Sim - uses smoother synth instruments and medium-to-long bass notes</li>
   <li>Strategy - uses MIDI-style brass instruments and long, sustained bass line notes</li>
   <li>Horror - uses strings, but also unconventional instruments like a music box and tubular bells, and long bass line notes</li>
