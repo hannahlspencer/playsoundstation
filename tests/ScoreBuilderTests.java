@@ -11,6 +11,9 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 
 public class ScoreBuilderTests {
+    /**
+     * Three different sets of variable correspond to testing 1-3 lines of melody
+     */
     private String[] scoreComponents;
     private String[] scoreComponentsTwoMelody;
     private String[] scoreComponentsThreeMelody;
@@ -27,13 +30,16 @@ public class ScoreBuilderTests {
 
     @Before
     public void initialise() {
-        scoreComponents = ScoreBuilder.runGenerator("Strategy", "Gloomy", 8, 1).toString().split(" ");
+        scoreComponents = ScoreBuilder.runGenerator("Strategy", "Gloomy", 8, 1)
+                .toString().split(" ");
         score = ScoreBuilder.getScore();
         scoreArray = score.getScore().split(" ");
-        scoreComponentsTwoMelody = ScoreBuilder.runGenerator("Strategy", "Gloomy", 8, 2).toString().split(" ");
+        scoreComponentsTwoMelody = ScoreBuilder.runGenerator("Strategy", "Gloomy", 8, 2)
+                .toString().split(" ");
         scoreTwoMelody = ScoreBuilder.getScore();
         scoreTwoArray = scoreTwoMelody.getScore().split(" ");
-        scoreComponentsThreeMelody = ScoreBuilder.runGenerator("Strategy", "Gloomy", 8, 3).toString().split(" ");
+        scoreComponentsThreeMelody = ScoreBuilder.runGenerator("Strategy", "Gloomy", 8, 3)
+                .toString().split(" ");
         scoreThreeMelody = ScoreBuilder.getScore();
         scoreThreeArray = scoreThreeMelody.getScore().split(" ");
 
