@@ -17,7 +17,6 @@ public class ScoreUtilsTest {
     public void getAvailableNotes() {
         List notes = ScoreUtils.getAvailableNotes();
         assertTrue(notes instanceof ArrayList);
-        assertEquals(7, notes.size());
         assertEquals("A", notes.get(0));
         assertEquals("B", notes.get(1));
         assertEquals("C", notes.get(2));
@@ -25,8 +24,6 @@ public class ScoreUtilsTest {
         assertEquals("E", notes.get(4));
         assertEquals("F", notes.get(5));
         assertEquals("G", notes.get(6));
-
-
     }
 
     @Test
