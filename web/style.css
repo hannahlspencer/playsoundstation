@@ -21,22 +21,10 @@ h1 {
     padding: 1em;
 }
 
-/* Section one*/
-.first-section {
-    background-color: #fff;
-}
 
 h3 {
     font-family: 'Raleway', Arial, sans-serif;
     margin: 0 5em;
-}
-
-/* Section two */
-
-.second-section {
-    /*padding-top: 3em;
-    background-color: #649e92;
-    padding-bottom: 4em;*/
 }
 
 label {
@@ -48,30 +36,6 @@ label {
     font-size: 1.5em;
     padding: 10px 8px 10px 14px;
     position: relative;
-}
-
-.third-section {
-    /*background-color: #595F72;
-    padding-bottom: 4em;*/
-}
-
-
-.fourth-section {
-    /*padding-top: 2em;
-    background-color: #6495ed;
-    padding-bottom: 4em;*/
-}
-
-.fifth-section {
-    /*padding-top: 2em;
-    background-color: #547B77;
-    padding-bottom: 4em;*/
-}
-
-.sixth-section {
-    /*padding-top: 2em;
-    background-color: #a13d61;
-    padding-bottom: 4em;*/
 }
 
 button {
