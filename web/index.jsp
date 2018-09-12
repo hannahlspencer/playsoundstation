@@ -26,11 +26,11 @@
 
 <div class="section first-section" id="first">
   <h1 class="text-center" id="intro-name">PlaySoundStation</h1><br>
-  <h3 class="text-center" id="blurb">
+  <h2 class="text-center" id="blurb">
     This program algorithmically generates music based on the parameters that you set.<br>
     Once you set your preferences and click Download, you'll receive a MIDI file that you can place straight into
     your game.
-  </h3>
+  </h2>
 </div>
 
 <form action="MusicServlet" method="POST" id='inputForm' style="align: center;">
