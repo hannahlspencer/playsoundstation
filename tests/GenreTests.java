@@ -1,9 +1,7 @@
 import org.junit.Test;
 import Genre.*;
-
 import java.util.Arrays;
 import java.util.List;
-
 import static junit.framework.TestCase.assertEquals;
 
 public class GenreTests {

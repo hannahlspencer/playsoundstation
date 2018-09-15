@@ -33,10 +33,12 @@ public class GenreUtils {
         return instruments[(int) (Math.random()*instruments.length)];
     }
 
+
+
     /**
      *  Selects a random Bass instrument to use for the bassline of the piece of music,
-     *  checks if it's appropriate to have a bassline, and calls a method to get the melody
-     * @return String that contains the bass melody and instrument
+     *  checks if it's appropriate to have a bassline
+     * @return String that contains the bass instrument or an empty String if no bass is to be used
      */
     public static String setBassInstrument() {
         //retrieves a random instrument from BassInstruments enum
@@ -57,3 +59,4 @@ public class GenreUtils {
         return genreClass.getBassNoteLengths();
     }
 }
+

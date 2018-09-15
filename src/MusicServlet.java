@@ -9,6 +9,15 @@ import java.io.*;
 @WebServlet("/MusicServlet")
 public class MusicServlet extends HttpServlet {
 
+    /**
+     * Retrieves the user's set parameters and sends them into the adapter class (ScoreBuilder) to trigger the building
+     * of the track relevant to those parameters
+     * Sets the response headers as audio, and writes the Sequence returned from the ScoreBuilder as a Midi file
+     * in the response
+     * @param request user parameters
+     * @param response response to user
+     * @throws IOException
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         //retrieving selected genre and mood as Strings
         String genre = request.getParameter("genre");

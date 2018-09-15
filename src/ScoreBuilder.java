@@ -110,9 +110,9 @@ public class ScoreBuilder {
     }
 
     /**
-     * After the scores have been added, the final score is retrieved as a String. This method then
-     * turns it into a single Pattern class to return to the servlet
-     * @return Pattern containing the final score
+     * After the scores have been added, the final score is retrieved as two Patterns. This method then
+     * turns it into a single Sequence class to return to the servlet
+     * @return Sequence containing the final score
      */
     private static Sequence convertTrack() {
         Pattern tempScore = new Pattern(score.getScore());

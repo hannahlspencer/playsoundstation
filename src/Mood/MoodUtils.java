@@ -25,8 +25,8 @@ public class MoodUtils {
 
     /**
      * From a series of notes, defines a set of keys that could be used
-     * Picks one of these keys at random and returns the String of the key, including
-     * whether it should be major or minor dependent on the Mood
+     * Picks one of these keys at random and whether it should be major or minor dependent on the Mood
+     * @return the String of the key
      */
     public static String setKey() {
         //decides a random note for the key to be in
@@ -45,8 +45,8 @@ public class MoodUtils {
      * Each mood also has a recommended number of beats per 12 beats (to accommodate for all
      * standard time signatures)
      * The for loops start with each recommended instrument, and the second for loop adds up to the
-     * number of recommended beats to that layer. The first for loop then adds that layer to the rhythm
-     * @return Rhythm type with all the layers that can be fed into a player that creates percussive sounds
+     * number of recommended beats to that layer. The first for loop then adds that layer to the rhythm.
+     * @return Pattern type with all the layers that can be fed into a player that creates percussive sounds
      */
     public static Pattern addPercussion() {
         //fetches instruments
